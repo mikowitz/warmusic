@@ -1,0 +1,137 @@
+ACHILLES
+
+julia> get_pitches("someonehasleftaspearstuckinthesand", eng, "someonehasleftaspearstuckinthesand", english, 5)
+julia> get_pitches("someonehasleftaspearstuckinthesand", eng, "someonehasleftaspearstuckinthesand", english, 5)
+34-element Array{Array{Any,1},1}:
+ loose_mod_in_range(1,6, [
+ ["R", "R", "R", 18, 14]
+ [12, 4, 14, "R", 13]
+ ["R", 4, "R", "R", "R"]
+ [7, 0, "R", 18, "R"]
+ [11, 4, 5, "R", 19]
+ ["R", "R", "R", 0, "R"]
+ [18, 15, "R", 4, "R"]
+ ["R", "R", 0, "R", 17]
+ ["R", "R", 18, "R", "R"]
+ ["R", "R", "R", 19, 20]
+ ], 5)
+
+loose_mod_in_range( 1,7, [
+ [2, "R", 10, 8, 13]
+ [19, 7, "R", 4, "R"]
+ [18, "R", 0, 13, "R"]
+ [3, 18, 14, 12, "R"]], 5)
+
+loose_mod_in_range( 2,7, [
+ ["R", "R", 4, "R", "R"]
+ ["R", "R", "R", 14, 13]
+ [4, "R", "R", 7, 0]
+ [18, 11, "R", 4, "R"]
+ ], 5)
+
+loose_mod_in_range( 3,7, [
+ ["R", "R", 5, "R", "R"]
+ ["R", 19, 0, 18, "R"]
+ ["R", "R", "R", 15, 4]
+ ], 5)
+
+loose_mod_in_range( 4,7, [
+ [0, 17, 18, 19, "R"]
+ ["R", "R", 20, 2, 10]
+ [8, 13, "R", "R", 19]
+ ], 5)
+
+loose_mod_in_range( 3,6, [
+ [7, 4, "R", 18, 0]
+ [13, "R", 3, "R", "R"]
+ ["R", "R", "R", 18, "R"]
+ [14, 12, 4, 14, "R"]
+ ], 5)
+
+loose_mod_in_range( 3,5, [
+ ["R", "R", 13, "R", 4]
+ ], 5)
+
+loose_mod_in_range( 2,5, [
+ [7, 0, "R", 18, "R"]
+ ], 5)
+
+loose_mod_in_range( 2,4, [
+ ["R", "R", "R", 11, 4]
+ ["R", "R", 5, "R", "R"]
+ ], 5)
+
+loose_mod_in_range( 2,3, [
+ ["R", "R", "R", 19, "R"]
+], 5)
+
+loose_mod_in_range( 1,3, [
+ [0, 18, "R", "R", "R"]
+ ], 5)
+
+
+HECTOR
+
+julia> get_pitches("iseemyfatebeforemene", eng, "neverachancethaticouldwinyouover", english, 3)
+34-element Array{Array{Any,1},1}:
+
+loose_mod_in_range( 5,7,[
+ [13, "R", 4]
+ ["R", "R", "R"]
+ ["R", "R", 21]
+ [4, 17, 0]
+ ], 3)
+
+loose_mod_in_range( 4,7,[
+ ["R", 2, "R"]
+ [7, 0, "R"]
+ [13, "R", "R"]
+ ], 3)
+
+loose_mod_in_range( 3,7,[
+ [2, "R", "R"]
+ ["R", "R", 4]
+ ["R", "R", 19]
+ [7, "R", 0]
+ [19, "R", "R"]
+ ], 3)
+
+loose_mod_in_range( 4,7,[
+ ["R", 8, "R"]
+ ["R", 2, 14]
+ ], 3)
+
+loose_mod_in_range( 4,6,[
+ [20, 11, "R"]
+ [3, 22, "R"]
+ [8, "R", 13]
+ ["R", "R", 24]
+ ["R", 14, 20]
+ ], 3)
+
+loose_mod_in_range( 4,5,[
+ ["R", 14, "R"]
+ [21, "R", 4]
+ [17, "R", 13]
+ [4, 21, "R"]
+ ], 3)
+
+loose_mod_in_range( 3,4,[
+ [4, "R", 17]
+ [0, 2, "R"]
+ [7, 0, "R"]
+ [13, "R", "R"]
+ ], 3)
+
+loose_mod_in_range( 2,3,[
+ [2, "R", "R"]
+ ["R", 4, 19]
+ ["R", 7, "R"]
+ ], 3)
+
+ ["R", "R", "R"]
+
+ [0, "R", 19]
+
+ [8, "R", 2]
+ ["R"]

@@ -1,0 +1,64 @@
+
+[
+	A1
+  ["sn16-> sn16-> sn16 sn16-> r16 r16 r16 sn16-> r16 r16 sn16 sn16-> sn16 r16 r16 sn16-> sn16 r16 r16 sn16-> r16 sn16 sn16-> r16 r16 sn16 sn16 "],
+
+	A2 or P1
+  ["r16 sn16-> sn16-> sn16 sn16-> r16 r16 r16 sn16-> r16 r16 sn16 sn16-> sn16 r16 r16 sn16-> sn16 r16 r16 sn16-> r16 sn16 sn16-> r16 r16 sn16 sn16 ",
+   "sn16-> r16 r16 r16 r16 sn16-> sn16-> r16 sn16 r16 r16 sn16-> r16 r16 sn16 r16 sn16-> sn16 sn16 sn16 sn16-> sn16 sn16-> sn16 r16 r16 sn16-> r16 sn16 r16 sn16 sn16-> r16 r16 sn16 sn16 "],
+
+	A3 xor P2
+  ["r16 r16 sn16-> r16 sn16-> sn16 r16 r16 r16 r16 sn16-> r16 r16 sn16 sn16-> r16 r16 r16 r16 r16 r16 r16 r16 r16 r16 sn16-> r16 r16 sn16 r16 ",
+   "sn16-> r16 r16 r16 r16 r16 r16 sn16-> r16 sn16 r16 r16 sn16-> r16 r16 r16 r16 sn16-> r16 r16 sn16 sn16-> r16 sn16-> r16 r16 r16 sn16-> r16 r16 r16 sn16 r16 r16 r16 r16 r16 "],
+
+	A4 or P3
+  ["r16 r16 r16 sn16-> r16 r16 sn16-> sn16 sn16-> r16 r16 r16 sn16-> r16 r16 sn16 sn16-> sn16 r16 r16 sn16-> sn16 r16 r16 r16 sn16-> r16 sn16 sn16-> r16 r16 sn16 sn16 ",
+   "sn16-> r16 r16 r16 r16 r16 r16 sn16-> sn16-> r16 sn16 r16 r16 sn16-> r16 r16 sn16 r16 sn16-> sn16 sn16 sn16 r16 sn16-> sn16 sn16-> sn16 r16 r16 sn16-> r16 sn16 r16 sn16 sn16-> r16 r16 sn16 sn16 "],
+
+	P4
+  ["sn16-> r16 r16 r16 r16 r16 r16 r16 sn16-> sn16-> r16 sn16 r16 r16 sn16-> r16 r16 sn16 r16 sn16-> sn16 sn16 sn16 r16 r16 sn16-> sn16 sn16-> sn16 r16 r16 sn16-> r16 sn16 r16 sn16 sn16-> r16 r16 sn16 sn16 "],
+
+	P5 and H1
+  ["sn16-> r16 r16 r16 r16 r16 r16 r16 r16 sn16-> r16 r16 r16 r16 r16 sn16-> r16 r16 sn16 r16 r16 sn16-> r16 sn16 r16 r16 r16 r16 r16 sn16 r16 sn16-> sn16 r16 r16 r16 r16 sn16 r16 sn16 sn16-> r16 r16 r16 sn16 ",
+   "sn16-> r16 r16 r16 r16 r16 r16 r16 r16 sn16-> r16 r16 r16 r16 r16 sn16 r16 r16 sn16-> r16 r16 sn16 r16 "],
+
+	P6 xor H2
+  ["r16 sn16-> r16 r16 r16 r16 r16 r16 r16 r16 r16 r16 r16 sn16-> r16 r16 r16 r16 r16 sn16-> r16 r16 sn16 r16 r16 r16 sn16-> r16 sn16 r16 r16 r16 r16 r16 r16 sn16 r16 r16 r16 r16 r16 r16 r16 sn16-> r16 sn16 r16 r16 r16 r16 r16 r16 r16 r16 ",
+   "sn16-> r16 r16 r16 sn16-> r16 sn16 sn16-> sn16 sn16-> r16 r16 r16 r16 sn16-> r16 sn16 sn16 sn16-> r16 r16 sn16 r16 "],
+
+	nP5 or H3
+  ["r16 sn16-> sn16 sn16 sn16 sn16-> sn16 sn16 sn16 r16 r16 sn16-> r16 sn16 sn16 r16 sn16-> sn16 r16 sn16 sn16-> r16 r16 r16 r16 sn16-> sn16 sn16 r16 r16 sn16-> r16 r16 sn16 sn16 r16 sn16-> r16 sn16 r16 r16 sn16-> sn16 r16 r16 ",
+   "sn16-> r16 r16 r16 sn16-> r16 sn16 r16 sn16-> sn16 sn16-> r16 sn16 r16 r16 sn16-> sn16 sn16 sn16 sn16-> r16 r16 sn16 r16 "],
+
+	H4
+  ["sn16-> r16 r16 r16 r16 sn16-> r16 sn16 r16 r16 sn16-> sn16 sn16-> r16 sn16 r16 r16 sn16-> sn16 sn16 sn16 sn16-> r16 r16 sn16 r16 "],
+
+	nP4
+  ["r16 sn16-> sn16 sn16 sn16 sn16-> sn16 sn16 r16 r16 sn16-> r16 sn16 sn16 r16 sn16-> sn16 r16 sn16 r16 r16 r16 r16 sn16-> sn16 r16 r16 r16 r16 sn16-> sn16 r16 sn16-> r16 sn16 r16 r16 sn16-> sn16 r16 r16 "],
+
+	A5 xor nP3
+  ["r16 r16 r16 r16 r16 r16 r16 r16 sn16-> r16 r16 r16 r16 r16 r16 r16 sn16-> r16 r16 sn16 r16 sn16-> r16 r16 r16 r16 sn16-> r16 r16 r16 r16 r16 r16 r16 sn16 r16 r16 r16 sn16 sn16 ",
+   "r16 sn16-> sn16 sn16 r16 sn16-> sn16 r16 r16 r16 r16 r16 sn16 r16 sn16-> sn16 r16 sn16 r16 r16 r16 r16 r16 r16 r16 r16 r16 r16 sn16 r16 sn16-> r16 r16 r16 r16 r16 sn16 r16 r16 "],
+
+	A5 or H5
+  ["r16 r16 r16 r16 sn16-> r16 r16 r16 sn16-> sn16 r16 sn16-> r16 r16 r16 r16 sn16-> r16 r16 sn16 r16 sn16-> sn16 r16 r16 r16 sn16-> sn16 r16 r16 r16 r16 sn16-> r16 sn16 sn16-> r16 r16 sn16 sn16 ",
+   "r16 sn16-> r16 r16 r16 r16 r16 sn16-> r16 sn16 r16 r16 r16 sn16-> sn16 sn16-> r16 sn16 r16 r16 r16 sn16-> sn16 sn16 sn16 sn16-> r16 r16 sn16 r16 "],
+
+	A4 and H6
+  ["r16 r16 r16 r16 r16 r16 r16 r16 r16 r16 r16 r16 r16 r16 r16 r16 sn16-> sn16 r16 r16 r16 sn16 r16 r16 r16 r16 r16 sn16 sn16-> r16 r16 sn16 r16 ",
+   "r16 r16 r16 r16 r16 r16 r16 r16 r16 r16 r16 r16 r16 r16 r16 r16 sn16-> sn16 r16 r16 r16 sn16 r16 r16 r16 r16 r16 sn16 sn16 r16 r16 sn16-> r16 r16 r16 r16 "],
+
+	A3 or nP2 or H7
+  ["r16 r16 sn16-> r16 sn16-> sn16 sn16-> r16 r16 r16 sn16-> r16 r16 sn16 sn16-> sn16 r16 r16 sn16-> sn16 r16 r16 sn16-> r16 sn16 sn16-> r16 r16 sn16 sn16 ",
+   "r16 sn16-> sn16 sn16 sn16 sn16-> r16 r16 sn16-> r16 sn16 sn16 r16 sn16-> sn16 r16 sn16 r16 r16 r16 r16 r16 r16 sn16-> sn16 r16 sn16-> r16 sn16 r16 r16 sn16-> sn16 r16 r16 ",
+   "r16 r16 r16 sn16-> r16 r16 r16 r16 r16 r16 r16 sn16-> r16 sn16 r16 r16 r16 r16 r16 sn16-> sn16 r16 r16 sn16-> r16 sn16 r16 r16 r16 r16 r16 sn16-> sn16 sn16 sn16 r16 r16 sn16-> r16 r16 sn16 r16 "],
+
+	A2 xor nP2 xor nH8
+  ["r16 r16 r16 sn16 r16 r16 r16 r16 r16 r16 r16 r16 r16 r16 r16 r16 r16 r16 r16 r16 r16 r16 sn16 r16 r16 r16 r16 r16 ",
+   "r16 r16 r16 sn16 r16 r16 r16 r16 r16 r16 r16 r16 r16 r16 r16 sn16 r16 r16 r16 r16 r16 r16 r16 r16 r16 r16 r16 r16 r16 r16 r16 r16 r16 r16 r16 r16 ",
+   "r16 r16 r16 sn16 r16 sn16 sn16 r16 r16 r16 r16 r16 r16 r16 sn16 r16 r16 r16 sn16 sn16 r16 sn16 r16 r16 r16 r16 r16 r16 sn16 r16 r16 r16 r16 r16 sn16 sn16 r16 r16 r16 r16 r16 r16 sn16 r16 r16 sn16 r16 sn16 "],
+
+	nA1
+  ["r16 r16 r16 r16 sn16-> sn16 sn16 r16 sn16-> sn16 r16 r16 r16 sn16-> sn16 r16 r16 sn16-> sn16 r16 sn16-> r16 r16 sn16-> sn16 r16 r16 "]
+]
+
