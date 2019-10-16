@@ -15,7 +15,7 @@
   tagline =##f
   indent = 0
   ragged-right = ##f
-  system-system-spacing.minimum-distance = #30
+  system-system-spacing.minimum-distance = #50
 }
 
 setGrace = {
@@ -29,9 +29,9 @@ setGrace = {
     \override Staff.Stem.stemlet-length = #1
     \override Score.BarNumber.break-visibility = ##(#f #f #t)
     % \stemDown
-    \stemUp
-     \override Beam.damping = #20
-    \override Stem.details.beamed-lengths = #'(14 14 14 14 14)
+  \stemUp
+%     \override Beam.damping = #10
+   \override Stem.details.beamed-lengths = #'(12 12 12 12 12)
     \stopStaff
     \override Staff.StaffSymbol.line-positions = #'(-11 -9 -7 -2 0 2 7 9 11)
     \startStaff
@@ -43,58 +43,58 @@ setGrace = {
       \teeny \general-align #Y #DOWN \note #"8" #1 "= 15"
       "| slow, deliberate, preparatory"
     }
-%    \stemDown
-    f,32---> \ff \> a, a, 
-    \once \override DynamicText.extra-offset = #'(0 . 2)
-    a, \p
+    %\stemDown
+    f,32--->  [ a, a,    a, ]
 
     %2
-    r16. 
-    
-    \once \override Stem.length = #26
-    c32 \pp
+    \once \override Dots.extra-offset = #'(0 . 2.3)
+    \once \override Rest.extra-offset = #'(0 . 2.3)
+    r16. [
+
+%    \once \override Stem.length = #26
+    c32 ]
 
     %3
-    r16 a,32 \mp \> a,
+    \once \override Rest.extra-offset = #'(0 . 2.3)
+    r16 [ a,32 a, ]
 
     \time 3/8
 
     %4
-    a,16. a,32--
+    a,16. [ a,32-- ]
 
     %5
     f,16. c32
 
 
     %6
-    r32 f, a,16 \pp
+    r32 f, a,16
 
     \time 2/8
 
     %7
-    r32 
+    r32
     \once \override TextSpanner.bound-details.left.text = "slight accel."
     \once \override TextSpanner.bound-details.right.padding = #5
     \once \override DynamicText.extra-offset = #'(0 . 3)
-    c32-> \ff \>  [  \startTextSpan
+    c32->  [  \startTextSpan
     c c
 
     %8
-    c-- f, a, 
+    c-- f, a,
     \grace {
-      \once \override Stem.length = #20
+      \once \override Stem.length = #25
       \once \stemDown a32 (
-    } 
-    \afterGrace 
-    
+    }
+    \afterGrace
+
 %    \once \override DynamicText.extra-offset = #'(0 . 2)
-    f,32 
-    _\pp
-    ) _( ] { 
-      \once \override Stem.length = #20
-      \once \stemDown 
+    f,32
+    ) _( ] {
+      \once \override Stem.length = #25
+      \once \stemDown
       c'32 )
-    } 
+    }
 
 
     \time 2/8
@@ -102,63 +102,84 @@ setGrace = {
     %9
     \tempo 8 = 20
     \tuplet 7/4 {
-      r16 \stopTextSpan c'16.->-- \ff c32 c'
+      r16 \stopTextSpan c'16.->--  c32 c'
     }
 
     % 10
-    r16 
+    r16
     \grace {
       \setGrace
-      e'32 ( 
+      e'32 (
     }
-    a, ) 
+    a, )
     \grace {
       \setGrace
-      f, ( 
+      f, (
     }
     c' )
 
     \break
 
     %11
-    \tuplet 7/4 {
-      \grace {
+     \grace {
         \setGrace
-        a,32 ( 
+        a,32 (
     }
-      c'16 ) c'32 c'32 a f, e'-> \ff
+    \tuplet 7/4 {
+     
+      c'16 ) c'32 c'32 a f, e'->
     }
 
     % 12
-    \tuplet 5/4 {
-      \grace {
+          \grace {
          \setGrace
-       c32 ( 
-      }a32 ) c'16.-- 
+       c32 (
+      }
+    \tuplet 5/4 {
+
+      a32 ) c'16.--
       \grace {
         \setGrace
-        c32 ( 
-        
+        c32 (
+
       }c'32 )
     }
-    
+
     \time 2/8
 
     %13
-    r32 \grace c' ( a, ) \grace f, ( c' ) c'
+    r32 \grace {
+      \setGrace
+      c' ( 
+    }a, ) \grace {
+      \setGrace
+      f, ( 
+    }
+    c' ) c'
 
     %14
-    r32 \grace a, ( 
+    r32 \grace {
+      \setGrace
+      a, (
+    }
     \once \override TextSpanner.bound-details.left.text = "slight rit."
 %    \once \override TextSpanner.bound-details.left.padding = #-5
     \once \override TextSpanner.bound-details.right.padding = #-2
-    e'-> \ff) \startTextSpan \grace f, ( a-> \ff) e' \stopTextSpan
+    e'-> ) \startTextSpan \grace  {
+      \setGrace
+    f, ( 
+    }
+    a-> ) e' \stopTextSpan
 
 
     \time 3/8
 
     % 15
-    \tempo 8 = 15
+        \tempo \markup {
+      \teeny \general-align #Y #DOWN \note #"8" #1 "= 15"
+      "| but now restless"
+    }
+    %\tempo 8 = 15
     r32 a,16-- f,32
 
     % 16
@@ -167,13 +188,21 @@ setGrace = {
     }
 
     % 17
-    r32 \grace e'32 ( a,16. )
+    r32 \grace {
+      \setGrace
+      e'32 ( 
+    }
+    \once \override Stem.length = #26
+    a,16. )
 
     \time 3/8
 
     % 18
     \tuplet 5/4 {
-      a,32 \grace a ( f,16. ) e'32--
+      a,32 \grace {
+        \setGrace
+        a ( 
+      }f,16. ) e'32--
     }
 
     % 19
@@ -190,13 +219,18 @@ setGrace = {
     \time 3/8
 
     % 21
-    \grace a,32 ( e'16.-> \ff) f,32
+    \grace a,32 ( e'16.-> ) f,32
 
     % 22
     r32 a16.
 
     % 23
-    a,16. \grace e'32 ( f,32-- )
+    a,16. 
+    \grace {
+      \once \stemDown
+      e'32 ( 
+    }
+    f,32-- )
 
     \time 2/8
 
@@ -217,7 +251,9 @@ setGrace = {
     \grace a,32 ( c'-- ) \grace c ( e' ) \grace a ( c ) e'
 
     %27
-    a32 \grace c ( e'-> \ff) \grace f, ( a-> \ff) ^\markup { "molto accel." } e'
+    a32 \grace c ( e'-> ) \grace f, (
+    \once \override TextSpanner.bound-details.left.text = "molto accel. "
+    a-> ) \startTextSpan e'
 
     \time 3/8
 
@@ -229,7 +265,7 @@ setGrace = {
 
 
     %30
-    \grace c32 ( c' ) \grace a, ( e'-> \ff) c'16
+    \grace c32 ( c' ) \grace a, ( e'-> ) c'16 \stopTextSpan
 
   \break
 \time 3/8
@@ -250,7 +286,7 @@ setGrace = {
     a16. e'32
 
     %35
-    r32 a32-- c' c'-> \ff
+    r32 a32-- c' c'->
 
 
     \time 2/8
@@ -273,7 +309,7 @@ setGrace = {
 
     %40
     \tempo 8 = 30
-    r32 a e' \grace c' ( c''->-- \ff )
+    r32 a e' \grace c' ( c''->--  )
 
 
     %41
@@ -285,7 +321,7 @@ setGrace = {
     \tuplet 3/2 {
       r8 a16
     }
-    
+
     \break
 
     \time 2/8
@@ -296,7 +332,7 @@ setGrace = {
     }
 
     %44
-    r16 \grace a32 ( \tuplet 3/2 { e''32 ) e'-> \ff c' }
+    r16 \grace a32 ( \tuplet 3/2 { e''32 ) e'->  c' }
 
     \time 2/8
 
@@ -314,7 +350,7 @@ setGrace = {
     r16 \tuplet 3/2 { e''16 a32 }
 
     %48
-    e''32-- e'' \grace c'' ( e'-- ) \grace g'' ( a-> \ff )
+    e''32-- e'' \grace c'' ( e'-- ) \grace g'' ( a->  )
 
     \time 2/8
 
@@ -339,7 +375,7 @@ setGrace = {
 
     %53
     \tuplet 7/4 {
-      \grace c'32 ( c' ) a \grace g'' ( e'16. ) \grace a32 ( c''16-> \ff )
+      \grace c'32 ( c' ) a \grace g'' ( e'16. ) \grace a32 ( c''16->  )
     }
 
     \time 2/8
@@ -349,8 +385,8 @@ setGrace = {
 
     %55
     \tuplet 7/4 {
-      r16 g''-> \ff a32 e' c'->--
-    \ff }
+      r16 g''->  a32 e' c'->--
+     }
 
     \time 2/8
 
@@ -361,7 +397,7 @@ setGrace = {
 
     %57
     \grace c''32 ( \tuplet 7/4 {
-      e'16 ) c'16. \grace c'32 ( g''-> \ff ) a32
+      e'16 ) c'16. \grace c'32 ( g''->  ) a32
     }
 
     \time 4/8
@@ -390,7 +426,7 @@ setGrace = {
     g''-- c'' g''16
 
     %64
-    r32 c''16.-> \ff
+    r32 c''16.->
 
     \time 2/8
 
@@ -404,7 +440,7 @@ setGrace = {
     \time 3/8
 
     %67
-    r32 c'16-> \ff ^\markup { "poco rit." } e'32
+    r32 c'16->  ^\markup { "poco rit." } e'32
 
     %68
     a16 e'32 a32
@@ -423,11 +459,12 @@ setGrace = {
     %72
     c'32 a16 c'32
 
+    \break 
     \time 3/8
 
     %73
     \tempo "Tempo 1°"
-    r32 c'16.-> \ff
+    r32 c'16.->
 
     %74
     c'32 e'16.
@@ -446,13 +483,13 @@ setGrace = {
 
     %77
     \tuplet 7/4 {
-      r16 c'8-> \ff r32
+      r16 c'8->  r32
     }
 
     %78
     \tuplet 7/4 {
       r8 a16.->
-    \ff }
+     }
 
     \time 2/8
 
@@ -489,7 +526,7 @@ setGrace = {
     \time 2/8
 
     %85
-    c'16.-> \ff 32--
+    c'16.->  32--
 
 
     %86
@@ -522,12 +559,12 @@ setGrace = {
     r8
 
     %92
-    \tuplet 3/2 { r32 [ c''16--  } f,16->-- \ff ]
+    \tuplet 3/2 { r32 [ c''16--  } f,16->--  ]
 
     \time 3/8
 
     %93
-    r32 c-> \ff ^\markup { "accel" } a, \grace f,32 ( e'' )
+    r32 c->  ^\markup { "accel" } a, \grace f,32 ( e'' )
 
     %94
     r32 e''16 a,32
@@ -541,7 +578,7 @@ setGrace = {
 
     %96
     \tuplet 7/4 {
-      c32 e''16.-> \ff e''32 a,16
+      c32 e''16.->  e''32 a,16
     }
 
     %97
@@ -553,14 +590,14 @@ setGrace = {
     \grace e''32 ( \tuplet 7/4 {
       a,32 ) c''16-- g''32 f, a, c''
     }
-    
+
     \time 4/8
 
     %99
     r16
     \tempo 8 = 30
     \grace f,32 (
-    e''-> \ff ) c
+    e''->  ) c
 
     %100
     r8
@@ -584,7 +621,7 @@ setGrace = {
     %105
     \tuplet 7/4 {
       r8 r32 e''16->
-    \ff }
+     }
 
 
     %106
@@ -596,25 +633,25 @@ setGrace = {
     \tempo "Tempo 1°"
     \tuplet 3/2 { r32 c''16 }
     \tuplet 3/2 {
-      g''32 [ \grace e'' ( e' ) 
-      \grace { 
+      g''32 [ \grace e'' ( e' )
+      \grace {
        \setGrace
-       a, ( \setGrace c'' 
-      } 
+       a, ( \setGrace c''
+      }
       a ) ]
     }
 
     %108
     \grace {
       \setGrace
-      g''32 ( 
+      g''32 (
     }\tuplet 3/2 {
       f,32-- ) [
       ^\markup { "molto accel." }
       \grace e' ( c'' ) \grace { a, ( c' } e''-- ) ]
     }
     \grace f,32 ( \tuplet 3/2 {
-      e''-> \ff [ ) e'' \afterGrace c'' ] { c'32 g'' }
+      e''->  [ ) e'' \afterGrace c'' ] { c'32 g'' }
     }
 
     %109
@@ -628,7 +665,7 @@ setGrace = {
 
     %110
     \tuplet 7/4 {
-      r32 [ \grace c''32 ( e'32  ) \grace f, ( e''-- ) g''-> \ff \grace { c ( c'' } a ) e'16 ]
+      r32 [ \grace c''32 ( e'32  ) \grace f, ( e''-- ) g''->  \grace { c ( c'' } a ) e'16 ]
     }
 
 
@@ -650,7 +687,7 @@ setGrace = {
 
     %113
     \grace a,32 ( \tuplet 3/2 {
-      e'16 ) \grace a32 ( g''32-> \ff )
+      e'16 ) \grace a32 ( g''32->  )
     }
     \tuplet 3/2 {
       e''32 \grace e'' ( a ) e'--
@@ -659,13 +696,13 @@ setGrace = {
     %114
     \grace { e''32 ^( a,32 } \tuplet 5/4 {
       e''32 ) a, c''16.->
-    \ff }
+     }
 
   \break
     \time 3/8
     %115
     \tempo "subito Tempo 1°"
-    r16 a,32-> \ff 32
+    r16 a,32->  32
 
 
     %116
@@ -679,7 +716,7 @@ setGrace = {
     a,16. 32
 
     %119
-    a,16-> \ff a,16
+    a,16->  a,16
 
     %120
     r32 c32 f,16
