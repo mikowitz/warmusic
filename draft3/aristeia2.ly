@@ -30,7 +30,7 @@ setGrace = {
     \override Score.BarNumber.break-visibility = ##(#f #f #t)
     % \stemDown
   \stemUp
-  \override Beam.damping = #20
+  \override Beam #'damping = #+inf.0
 
     \stopStaff
     \override Staff.StaffSymbol.line-positions = #'(-11 -9 -7 -2 0 2 7 9 11)
@@ -280,7 +280,7 @@ r16[  \stopTextSpan c'16.
     }
 
 \break
-    \override Stem.details.beamed-lengths = #'(12.5)
+    \override Stem.details.beamed-lengths = #'(13)
     \time 3/8
 
     % 21
@@ -369,7 +369,7 @@ r16[  \stopTextSpan c'16.
 
     \time 3/8
 
-    \override Stem.details.beamed-lengths = #'(8)
+    \override Stem.details.beamed-lengths = #'(8.5)
     % 28
     \tuplet 3/2 { 
       r16 [ 
@@ -420,7 +420,7 @@ r16[  \stopTextSpan c'16.
     r8 \fermata
 
     %32
-        \override Stem.details.beamed-lengths = #'(8.5)
+        \override Stem.details.beamed-lengths = #'(9)
     r16 [
     c'32 
     \set stemRightBeamCount = #1
@@ -459,7 +459,7 @@ r16[  \stopTextSpan c'16.
 
     \time 2/8
 
-    \override Stem.details.beamed-lengths = #'(7.5)
+    \override Stem.details.beamed-lengths = #'(8.25)
     %38
     r32 [ e'16 
     \set stemLeftBeamCount = #3
@@ -471,6 +471,8 @@ r16[  \stopTextSpan c'16.
     r32 a32 e'16 \stopTextSpan ]
 
     \time 3/8
+        \override Stem.details.beamed-lengths = #'(9)
+
 
     %40
         \tempo \markup {
@@ -506,7 +508,7 @@ r16[  \stopTextSpan c'16.
       e'' ( 
     }
     \once \set tupletFullLength = ##t
-        \override Stem.details.beamed-lengths = #'(9)
+        \override Stem.details.beamed-lengths = #'(8.5)
     \tuplet 7/4 {
       e'16. ) [
       a16 
@@ -551,7 +553,7 @@ r16[  \stopTextSpan c'16.
     \time 2/8
 
     %47
-        \override Stem.details.beamed-lengths = #'(5.5)
+        \override Stem.details.beamed-lengths = #'(5)
     r16 [ \tuplet 3/2 { e''16 
                         \set stemLeftBeamCount = #3
                         \set stemRightBeamCount = #1
@@ -572,7 +574,7 @@ r16[  \stopTextSpan c'16.
     \time 2/8
 
     %49
-        \override Stem.details.beamed-lengths = #'(8)
+        \override Stem.details.beamed-lengths = #'(6)
     r32 [ e' 
     \set stemRightBeamCount = #1
     c'16
@@ -584,7 +586,7 @@ r16[  \stopTextSpan c'16.
     \time 3/8
 
 \break
-    \override Stem.details.beamed-lengths = #'(9)
+    \override Stem.details.beamed-lengths = #'(8.5)
     %51
     \once \set tupletFullLength = ##t
     \tuplet 7/4 {
@@ -627,7 +629,7 @@ r16[  \stopTextSpan c'16.
 
     \time 2/8
 
-    \override Stem.details.beamed-lengths = #'(10)
+    \override Stem.details.beamed-lengths = #'(9.25)
     %54
     \grace {
       \setGrace
@@ -657,7 +659,7 @@ r16[  \stopTextSpan c'16.
     \time 2/8
 
     %56
-        \override Stem.details.beamed-lengths = #'(7)
+        \override Stem.details.beamed-lengths = #'(6)
     \tempo 8 = 60
     c'' [
     \grace {
@@ -808,7 +810,7 @@ r16[  \stopTextSpan c'16.
 %       r16 c'16 c'32-- ]
 %     }
 
-       \override Stem.details.beamed-lengths = #'(9)
+       \override Stem.details.beamed-lengths = #'(5)
     g''32 [ c'' g''
     \set stemRightBeamCount = #1
     c''
@@ -840,6 +842,7 @@ r16[  \stopTextSpan c'16.
     \set stemLeftBeamCount = #1
     r32 g''16. ]
 
+\override Stem.details.beamed-lengths = #'(6)
     \time 3/8
 
     %70
@@ -853,7 +856,7 @@ r16[  \stopTextSpan c'16.
 
     \break 
     \time 3/8
-        \override Stem.details.beamed-lengths = #'(8.5)
+        \override Stem.details.beamed-lengths = #'(5)
 
     %73
     \tempo "Tempo 1°"
@@ -869,6 +872,7 @@ r16[  \stopTextSpan c'16.
 
     \time 3/8
 
+\override Stem.details.beamed-lengths = #'(9)
     %76
     \once \set tupletFullLength = ##t
     \tuplet 7/4 {
@@ -891,7 +895,7 @@ r16[  \stopTextSpan c'16.
     %79
     r8 \fermata
 
-    \override Stem.details.beamed-lengths = #'(6)
+    \override Stem.details.beamed-lengths = #'(5)
     %80
     r16 [ g''16 ]
 
@@ -919,6 +923,7 @@ r16[  \stopTextSpan c'16.
      r32 a,8 a16 ]
     }
 
+    \override Stem.details.beamed-lengths = #'(11)
     \time 2/8
 
     %83
@@ -932,7 +937,7 @@ r16[  \stopTextSpan c'16.
 
 \break
     \time 2/8
-        \override Stem.details.beamed-lengths = #'(10)
+        \override Stem.details.beamed-lengths = #'(10.5)
 
     %85
     \once \override TextSpanner.bound-details.left.text = "accel. "
@@ -945,8 +950,10 @@ r16[  \stopTextSpan c'16.
       e'8 r16 c32 ]
     }
 
+  
+
     \time 2/8
-        \override Stem.details.beamed-lengths = #'(11.5)
+        \override Stem.details.beamed-lengths = #'(13)
     %87
     \once \set tupletFullLength = ##t
     \tuplet 5/4 {
@@ -960,6 +967,8 @@ r16[  \stopTextSpan c'16.
       c32 ( 
     }
     a ) ]
+    
+    \override Stem.details.beamed-lengths = #'(11)
 
     \time 2/8
 
@@ -977,6 +986,9 @@ r16[  \stopTextSpan c'16.
     %91
     r8
 
+\override Beam #'damping = #+inf.0
+    \override Stem.details.beamed-lengths = #'(6)
+
     %92
     \once \set tupletFullLength = ##t
     \tuplet 3/2 { 
@@ -986,6 +998,8 @@ r16[  \stopTextSpan c'16.
       c''16--  } f,16->--  ]
 
     \time 3/8
+
+    \override Stem.details.beamed-lengths = #'(13)
 
     %93
     \once \override TextSpanner.bound-details.left.text = "accel. "
@@ -1013,7 +1027,7 @@ r16[  \stopTextSpan c'16.
 
 
     \break
-        \override Stem.details.beamed-lengths = #'(7)
+        \override Stem.details.beamed-lengths = #'(6)
     \time 3/8
 
     %96
@@ -1038,6 +1052,8 @@ r16[  \stopTextSpan c'16.
     }
 
     \time 4/8
+
+    \override Stem.details.beamed-lengths = #'(5)
 
     %99
     r16 [ \stopTextSpan
@@ -1282,7 +1298,7 @@ r16[  \stopTextSpan c'16.
     \time 3/8
     %115
     
-        \override Stem.details.beamed-lengths = #'(13)
+        \override Stem.details.beamed-lengths = #'(13.5)
     \tempo "subito Tempo 1°"
     r16 [
     a,32->  
