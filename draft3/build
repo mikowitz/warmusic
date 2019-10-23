@@ -1,0 +1,20 @@
+#!/usr/bin/env sh
+
+lilypond duration.ly
+lilypond attacks.ly
+
+pdfcrop --margins 10 duration.pdf duration2.pdf
+pdfcrop --margins 10 attacks.pdf attacks2.pdf
+
+lilypond score.ly
+pdftk score.pdf cat 1 output score-p1.pdf
+pdfcrop --margins "10 -280 -50 -300" score-p1.pdf score-page1-crop.pdf
+
+xelatex test.tex
+xelatex titlepage.tex
+
+pdftk titlepage.pdf test.pdf score.pdf cat output full.pdf && open full.pdf
+
+
+
+
