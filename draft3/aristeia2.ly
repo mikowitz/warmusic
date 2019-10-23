@@ -172,7 +172,8 @@ r16[  \stopTextSpan c'16.
       }
     \tuplet 5/4 {
 
-\set stemLeftBeamCount = 1
+\set stemLeftBeamCount = #1
+\set stemRightBeamCount = #3
       a32 ) c'16.--
       \grace {
         \setGrace
@@ -410,7 +411,12 @@ r16[  \stopTextSpan c'16.
 \time 3/8
 
     %31
-    \tempo "subito Tempo 1°"
+        \tempo \markup {
+          "subito "
+      \teeny \general-align #Y #DOWN \note #"8" #1 "= 20"
+      "| restrained"
+    }
+    
     r8 \fermata
 
     %32
@@ -467,7 +473,10 @@ r16[  \stopTextSpan c'16.
     \time 3/8
 
     %40
-    \tempo 8 = 40
+        \tempo \markup {
+      \teeny \general-align #Y #DOWN \note #"8" #1 "= 40"
+      "| eager"
+    }
     r32 [
     a e' \grace {
       \setGrace
@@ -735,49 +744,112 @@ r16[  \stopTextSpan c'16.
     \time 2/8
 
     %65
-    \tempo 8 = 40
-        \override Stem.details.beamed-lengths = #'(9)
-    e'32 [ a e' 
+        \tempo \markup {
+      \teeny \general-align #Y #DOWN \note #"8" #1 "= 40"
+      "| victorious"
+    }
+%    \tempo 8 = 40
+ %        \override Stem.details.beamed-lengths = #'(9)
+%     e'32 [ a e' 
+%     \set stemRightBeamCount = #1
+%     a
+% 
+% 
+%     %66
+%     \set stemLeftBeamCount = #1
+%             \once \override TextSpanner.bound-details.left.text = "poco rit. "
+% 
+%     e'32-- \startTextSpan
+%     c' a16 ]
+% 
+%     \time 3/8
+% 
+%     %67
+% 
+%     r32  [
+%     c'16->  
+%     \set stemRightBeamCount = #1
+%     e'32
+% 
+%     %68
+%     \set stemLeftBeamCount = #1
+%     a16 e'32 
+%     \set stemRightBeamCount = #1
+%     a32
+% 
+%     %69
+%     \set stemLeftBeamCount = #1
+%     r32 e'16. ]
+% 
+%     \time 3/8
+% 
+%     %70
+%     r16 [ a32-- e'32
+% 
+%     %71
+%     r8
+% 
+%     %72
+%     c'32 a16 c'32 \stopTextSpan ]
+% 
+%     \break 
+%     \time 3/8
+%         \override Stem.details.beamed-lengths = #'(8.5)
+% 
+%     %73
+%     \tempo "Tempo 1°"
+%     r32 [ c'16.->
+% 
+%     %74
+%     c'32 e'16.
+% 
+%     %75
+%     \tuplet 5/4 {
+%       r16 c'16 c'32-- ]
+%     }
+
+       \override Stem.details.beamed-lengths = #'(9)
+    g''32 [ c'' g''
     \set stemRightBeamCount = #1
-    a
+    c''
 
 
     %66
     \set stemLeftBeamCount = #1
             \once \override TextSpanner.bound-details.left.text = "poco rit. "
 
-    e'32-- \startTextSpan
-    c' a16 ]
+    g''32-- \startTextSpan
+    e'' c''16 ]
 
     \time 3/8
 
     %67
 
     r32  [
-    c'16->  
+    e''16->  
     \set stemRightBeamCount = #1
-    e'32
+    g''32
 
     %68
     \set stemLeftBeamCount = #1
-    a16 e'32 
+    c''16 g''32 
     \set stemRightBeamCount = #1
-    a32
+    c''32
 
     %69
     \set stemLeftBeamCount = #1
-    r32 e'16. ]
+    r32 g''16. ]
 
     \time 3/8
 
     %70
-    r16 [ a32-- e'32
+    r16 [ c''32-- g''32
 
     %71
     r8
 
     %72
-    c'32 a16 c'32 \stopTextSpan ]
+    e''32 c''16 e''32 \stopTextSpan ]
 
     \break 
     \time 3/8
@@ -788,11 +860,11 @@ r16[  \stopTextSpan c'16.
     r32 [ c'16.->
 
     %74
-    c'32 e'16.
+    e''32 g''16.
 
     %75
     \tuplet 5/4 {
-      r16 c'16 c'32-- ]
+      r16 c'16 e''32-- ]
     }
 
     \time 3/8
@@ -947,7 +1019,7 @@ r16[  \stopTextSpan c'16.
     %96
     \once \set tupletFullLength = ##t
     \tuplet 7/4 {
-      c32 [ e''16.->  e''32 a,16
+      c32 [ e''16.-^ ->  e''32 a,16
     }
 
     %97
