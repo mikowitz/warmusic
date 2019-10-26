@@ -18,10 +18,11 @@
   system-system-spacing.minimum-distance = #50
 }
 
-setGrace = {
-  \once \stemDown
-  \once \override Stem.length = #20
-}
+setGrace = #(define-music-function (parser location stemLen) (number?)
+               #{
+                 \once \stemDown
+                 \once \override Stem.length = #stemLen
+               #})
 
 \score {
   \new PianoStaff <<
@@ -30,7 +31,7 @@ setGrace = {
     \override Score.BarNumber.break-visibility = ##(#f #f #t)
     % \stemDown
   \stemUp
-  
+
   \override Beam #'damping = #+inf.0
 
     \stopStaff
@@ -53,18 +54,18 @@ setGrace = {
     }
     %\stemDown
     \override Stem.details.beamed-lengths = #'(13)
-    f,32-^
-    %f,32--->  [ 
+    f,32-^ [
+    %f,32--->  [
     a, a,    \set stemRightBeamCount = 1
-    a, 
+    a,
 
     %2
     \set stemLeftBeamCount = 1
-    r16. 
+    r16.
 
 %    \once \override Stem.length = #26
 \set stemRightBeamCount = 1
-    c32 
+    c32
 
     %3
     \set stemLeftBeamCount = 1
@@ -73,13 +74,13 @@ setGrace = {
     \time 3/8
 
     %4
-    a,16. [ 
+    a,16. [
     \set stemRightBeamCount = 1
-    a,32-- 
+    a,32--
 
     %5
     \set stemLeftBeamCount = 1
-    f,16. 
+    f,16.
     \set stemRightBeamCount = 1
     \set stemLeftBeamCount = 3
     c32
@@ -94,12 +95,12 @@ setGrace = {
     \override Stem.details.beamed-lengths = #'(12)
     %7
     r32 [
-    \once \override TextSpanner.extra-offset = #'(0 . 2.5)
+    \once \override TextSpanner.extra-offset = #'(0 . 3)
     \once \override TextSpanner.bound-details.left.text = "slight accel."
-    \once \override TextSpanner.bound-details.right.padding = #6
+    \once \override TextSpanner.bound-details.right.padding = #7
 %    \once \override DynamicText.extra-offset = #'(0 . 3)
     c32-^  \startTextSpan
-    c 
+    c
     \set stemRightBeamCount = 1
     c
 
@@ -107,47 +108,49 @@ setGrace = {
     \set stemLeftBeamCount = 1
     c\marcato f, a,
     \grace {
-      \once \override Stem.length = #25
-      \once \stemDown a32 (
+       \setGrace #23
+      a32 (
     }
-    \afterGrace
 
 %    \once \override DynamicText.extra-offset = #'(0 . 2)
     f,32
-    ) _( ] {
-      \once \override Stem.length = #25
-      \once \stemDown
-      c'32 )
-    }
+    )  ]
+
 
 
     \time 2/8
-       
+
        \override Stem.details.beamed-lengths = #'(8.5)
 
 
     %9
-    \tempo 8 = 30
+     \tempo \markup {
+      \teeny \general-align #Y #DOWN \note #"8" #1 "= 30"
+     }
+     \grace {
+       \setGrace #25
+       c'32 (
+     }
     \tuplet 7/4 {
-r16[  \stopTextSpan c'16.-^
+    r16[ ) \stopTextSpan c'16.-^
  %   --
 %   ->
-      c32 
+      c32
       \set stemRightBeamCount = 1
-      c' 
+      c'
     }
 
     % 10
       %     \override Stem.details.beamed-lengths = #'(12 12 12 12 12)
   \set stemLeftBeamCount = 1
-    r16 
+    r16
     \grace {
-      \setGrace
+      \setGrace #27
       e'32 (
     }
     a, )
     \grace {
-      \setGrace
+      \setGrace #14
       f, (
     }
     c' ) ]
@@ -158,19 +161,19 @@ r16[  \stopTextSpan c'16.-^
 
     %11
      \grace {
-        \setGrace
+        \setGrace #16
         a,32 (
     }
     \tuplet 7/4 {
-     
-      c'16 ) [ c'32 c'32 a f, 
+
+      c'16 ) [ c'32 c'32 a f,
       \set stemRightBeamCount = 1
       e'-^ %->
     }
 
     % 12
           \grace {
-         \setGrace
+         \setGrace #18
        c32 (
       }
     \tuplet 5/4 {
@@ -179,7 +182,7 @@ r16[  \stopTextSpan c'16.-^
 \set stemRightBeamCount = #3
       a32 ) c'16.--
       \grace {
-        \setGrace
+        \setGrace #18
         c32 (
 
       }c'32 ) ]
@@ -189,23 +192,23 @@ r16[  \stopTextSpan c'16.-^
 
     %13
     r32 [ \grace {
-      \setGrace
-      c' ( 
+      \setGrace #25
+      c' (
     }a, ) \grace {
-      \setGrace
-      f, ( 
+      \setGrace #14
+      f, (
     }
-    c' ) 
+    c' )
     \set stemRightBeamCount = 1
-    c' 
+    c'
 
     %14
     \set stemLeftBeamCount = 1
     r32  \grace {
-      \setGrace
+      \setGrace #16
       a, (
     }
-    \once \override TextSpanner.bound-details.left.text = "slight rit."
+    \once \override TextSpanner.bound-details.left.text = "rit."
 %    \once \override TextSpanner.bound-details.left.padding = #-5
 \once \override TextSpanner.extra-offset = #'(0 . 4)
     \once \override TextSpanner.bound-details.left.padding = #-5
@@ -213,8 +216,8 @@ r16[  \stopTextSpan c'16.-^
     \once \override TextSpanner.bound-details.right.padding = #-2
     e' %->
     -^ ) \startTextSpan \grace  {
-      \setGrace
-    f, ( 
+      \setGrace #14
+    f, (
     }
     a-^ ) e' \stopTextSpan ]
 
@@ -236,7 +239,7 @@ r16[  \stopTextSpan c'16.-^
     \once \set tupletFullLength = ##t
     \tuplet 7/4 {
       \set stemLeftBeamCount = 1
-      c32 c'16. 
+      c32 c'16.
       \set stemRightBeamCount = 1
       a16.
     }
@@ -244,8 +247,9 @@ r16[  \stopTextSpan c'16.-^
     % 17
     \set stemLeftBeamCount = 1
     r32  \grace {
-      \setGrace
-      e'32 ( 
+      \setGrace #27
+     % \once \override Stem.length = #25
+      e'32 (
     }
 %    \once \override Stem.length = #26
     a,16. ) ]
@@ -256,9 +260,9 @@ r16[  \stopTextSpan c'16.-^
     % 18
     \tuplet 5/4 {
       a,32 [ \grace {
-        \setGrace
-        a ( 
-      }f,16. ) 
+        \setGrace #23
+        a (
+      }f,16. )
       \set stemRightBeamCount = 1
       e'32--
     }
@@ -269,7 +273,7 @@ r16[  \stopTextSpan c'16.-^
 %    \set tupletFullLengthNote = ##t
     \tuplet 5/4 {
       \set stemLeftBeamCount = 1
-      c'16 
+      c'16
       \set stemRightBeamCount = 1
       16.
     }
@@ -289,8 +293,8 @@ r16[  \stopTextSpan c'16.-^
 
     % 21
     \grace {
-      \setGrace
-      a,32 ( 
+      \setGrace #16
+      a,32 (
     }
     e'16.-^ ) [
     \set stemRightBeamCount = #1
@@ -300,17 +304,16 @@ r16[  \stopTextSpan c'16.-^
     % 22
     \set stemLeftBeamCount = #1
     \set stemRightBeamCount = #3
-    r32 
+    r32
     \set stemRightBeamCount = #1
     a16.
 
     % 23
     \set stemLeftBeamCount = #1
-    a,16. 
+    a,16.
     \grace {
-      \setGrace
-      \once \override Stem.length = #26
-      e'32 ( 
+      \setGrace #27
+      e'32 (
     }
     f,32-- ) ]
 
@@ -319,15 +322,15 @@ r16[  \stopTextSpan c'16.-^
 
     % 24
     \grace {
-      \setGrace
-      
-      \once \override Stem.length = #23
-      a32 ( 
+      \setGrace #23
+
+      %\once \override Stem.length = #23
+      a32 (
     }
     \once \set tupletFullLength = ##t
     \tuplet 5/4 {
       a,32 ) [
-      f,32 
+      f,32
       \set stemRightBeamCount = #1
       e'16.
     }
@@ -344,74 +347,76 @@ r16[  \stopTextSpan c'16.-^
 
     %26
     \grace {
-      \setGrace
+      \setGrace #16
       a,32 (
     }
         \override Stem.details.beamed-lengths = #'(7.5)
     c'-- ) [
     \grace {
-      \setGrace
-      c ( 
+      \setGrace #18
+      c (
     }
     e' ) \grace {
-      \setGrace
-      a ( 
-    }c ) 
+      \setGrace #23
+      a (
+    }c )
     \set stemRightBeamCount = #1
     e'
 
     %27
     \set stemLeftBeamCount = #1
-    a32 
+    a32
     \grace {
-      \setGrace
-      c ( 
+      \setGrace #18
+      c (
     }e'-^ ) \grace {
-      \setGrace
+      \setGrace #14
       f, (
     }
-    \once \override TextSpanner.extra-offset = #'(0 . 3)
+    \once \override TextSpanner.extra-offset = #'(0 . 2.5)
     \once \override TextSpanner.bound-details.left.text = "molto accel. "
+    \once \override TextSpanner.bound-details.right.padding = #-3
     a-^ ) \startTextSpan e' ]
 
     \time 3/8
 
     \override Stem.details.beamed-lengths = #'(8.5)
     % 28
-    \tuplet 3/2 { 
-      r16 [ 
+    \tuplet 3/2 {
+      r16 [
       \set stemLeftBeamCount = #3
       \set stemRightBeamCount = #1
       c'32
-    } 
-    \tuplet 3/2 { 
+    }
+    \tuplet 3/2 {
       \set stemLeftBeamCount = #1
-      c16 
+      c16
       \set stemRightBeamCount = #1
       \set stemLeftBeamCount = #3
-      a32 
+      a32
     }
 
     %29
     \set stemLeftBeamCount = #1
     c32 \grace {
-      \setGrace
-      c' ( 
+      \setGrace #25
+      %\once \override Stem.length = #25
+      c' (
     }
-    c ) 
+    c )
     \set stemRightBeamCount = #1
     c'16--
 
 
     %30
     \grace {
-      \setGrace
-      c32 ( 
+      \setGrace #18
+      c32 (
     }
     \set stemLeftBeamCount = #1
     c' ) \grace {
-      \setGrace
-      a, ( 
+      \setGrace #16
+      a, (
     }e'-^ ) c'16 \stopTextSpan ]
 
   \break
@@ -419,17 +424,16 @@ r16[  \stopTextSpan c'16.-^
 
     %31
         \tempo \markup {
-          "subito "
-      \teeny \general-align #Y #DOWN \note #"8" #1 "= 20"
+      \teeny \general-align #Y #DOWN \note #"8" #1 "= 20 subito"
       "| restrained"
     }
-    
+
     r8 \fermata
 
     %32
         \override Stem.details.beamed-lengths = #'(9)
     r16 [
-    c'32 
+    c'32
     \set stemRightBeamCount = #1
     c'
 
@@ -455,7 +459,9 @@ r16[  \stopTextSpan c'16.-^
 
     %36
     \once \override TextSpanner.bound-details.left.text = "accel. "
-    c'16. [ \startTextSpan 
+    \once \override TextSpanner.extra-offset = #'(0 . 2.5)
+    \once \override TextSpanner.bound-details.right.padding = #-4.5
+    c'16. [ \startTextSpan
     \set stemLeftBeamCount = #3
     \set stemRightBeamCount = #1
     c'32
@@ -468,7 +474,7 @@ r16[  \stopTextSpan c'16.-^
 
     \override Stem.details.beamed-lengths = #'(8.25)
     %38
-    r32 [ e'16 
+    r32 [ e'16
     \set stemLeftBeamCount = #3
     \set stemRightBeamCount = #1
     c'32--
@@ -488,9 +494,9 @@ r16[  \stopTextSpan c'16.-^
     }
     r32 [
     a e' \grace {
-      \setGrace
+      \setGrace #25
 %      \once \override Stem.length = #23
-      c' ( 
+      c' (
     }
     \set stemRightBeamCount = #1
     c''---^  )
@@ -512,14 +518,15 @@ r16[  \stopTextSpan c'16.-^
 
     %43
     \grace {
-      \setGrace
-      e'' ( 
+      \setGrace #34
+     %\once \override Stem.length = #30
+      e'' (
     }
     \once \set tupletFullLength = ##t
         \override Stem.details.beamed-lengths = #'(8.5)
     \tuplet 7/4 {
       e'16. ) [
-      a16 
+      a16
       \set stemRightBeamCount = #1
       e'16--
     }
@@ -527,10 +534,10 @@ r16[  \stopTextSpan c'16.-^
     %44
     \set stemLeftBeamCount = #1
     r16 \grace {
-      \setGrace
-      a32 ( 
+      \setGrace #23
+      a32 (
     }
-    \tuplet 3/2 { 
+    \tuplet 3/2 {
       \set stemLeftBeamCount = #1
       e''32 ) e'-^  c'  ]
     }
@@ -539,20 +546,20 @@ r16[  \stopTextSpan c'16.-^
 
     %45
     \tuplet 7/4 {
-      r16 [ e''32 a16 c'32 
+      r16 [ e''32 a16 c'32
       \set stemRightBeamCount = #1
       e'
     }
 
     %46
-    \tuplet 3/2 { 
+    \tuplet 3/2 {
       \set stemLeftBeamCount = #1
-      g''16 
+      g''16
       \set stemRightBeamCount = #1
       \set stemLeftBeamCount = #3
-      a32 } 
+      a32 }
     \once \set tupletFullLength = ##t
-    \tuplet 3/2 { 
+    \tuplet 3/2 {
       \set stemLeftBeamCount = #1
       \set stemRightBeamCount = #3
       e''32 e'16 ]
@@ -562,7 +569,7 @@ r16[  \stopTextSpan c'16.-^
 
     %47
         \override Stem.details.beamed-lengths = #'(5)
-    r16 [ \tuplet 3/2 { e''16 
+    r16 [ \tuplet 3/2 { e''16
                         \set stemLeftBeamCount = #3
                         \set stemRightBeamCount = #1
                         a32 }
@@ -570,12 +577,12 @@ r16[  \stopTextSpan c'16.-^
     %48
     \set stemLeftBeamCount = #1
     e''32-- e'' \grace {
-      \setGrace
-      c'' ( 
+      \setGrace #32
+      c'' (
     }
     e'-- ) \grace {
-    \setGrace
-      g'' ( 
+    \setGrace #36
+      g'' (
     }
     a-^  ) ]
 
@@ -583,7 +590,7 @@ r16[  \stopTextSpan c'16.-^
 
     %49
         \override Stem.details.beamed-lengths = #'(6)
-    r32 [ e' 
+    r32 [ e'
     \set stemRightBeamCount = #1
     c'16
 
@@ -599,7 +606,9 @@ r16[  \stopTextSpan c'16.-^
     \once \set tupletFullLength = ##t
     \tuplet 7/4 {
       \once \override TextSpanner.bound-details.left.text = "accel. "
-      e''32 [ \startTextSpan c' c'16. 
+      \once \override TextSpanner.extra-offset = #'(0 . 2.5)
+      \once \override TextSpanner.bound-details.right.padding = #'-1.5
+      e''32 [ \startTextSpan c' c'16.
       \set stemRightBeamCount = #1
       e''16--
     }
@@ -608,29 +617,32 @@ r16[  \stopTextSpan c'16.-^
     \tuplet 5/4 {
       \set stemLeftBeamCount = #1
       r32 e'' c' \grace {
-        \setGrace
-        e' ( 
+        \setGrace #27
+       % \once \override Stem.length = #25
+        e' (
       }
-      c' ) 
+      c' )
       \set stemRightBeamCount = #1
       c'--
     }
 
     %53
           \grace {
-        \setGrace
-        c'32 ( 
+        \setGrace #25
+        % \once \override Stem.length = #25
+        c'32 (
       }
       \once \set tupletFullLength = ##t
     \tuplet 7/4 {
       \set stemLeftBeamCount = #1
       c' ) a \grace {
-        \setGrace
-        g'' ( 
+        \setGrace #36
+%         \once \override Stem.length = #30
+        g'' (
       }
       e'16. ) \grace {
-        \setGrace
-        a32 ( 
+        \setGrace #23
+        a32 (
       }
       c''16-^  ) ]
     }
@@ -640,22 +652,25 @@ r16[  \stopTextSpan c'16.-^
     \override Stem.details.beamed-lengths = #'(9.25)
     %54
     \grace {
-      \setGrace
-      c' ( 
+      \setGrace #25
+      c' (
     }
-    c32 [ ) g'' \grace { 
-      \setGrace
-      c' ( \setGrace e'' 
-    } 
+    c32 [ ) g'' \grace {
+
+      \setGrace #25
+%       \once \override Stem.details.beamed-length = #'(25)
+      c' ( \setGrace #34
+      e''
+    }
     c' ) \grace {
-      \setGrace
-      c'' ( 
+      \setGrace #32
+      c'' (
     }
     \set stemRightBeamCount = #1
-    \afterGrace 
-    c' ) ( { 
-      \setGrace
-      e' ) 
+    \afterGrace
+    c' ) ( {
+      \setGrace #27
+      e' )
     }
 
     %55
@@ -668,32 +683,36 @@ r16[  \stopTextSpan c'16.-^
 
     %56
         \override Stem.details.beamed-lengths = #'(6)
-    \tempo 8 = 60
+        \once \override Score.MetronomeMark.extra-offset = #'(0 . 4)
+     \tempo \markup {
+      \teeny \general-align #Y #DOWN \note #"8" #1 "= 60"
+      "| overeager"
+     }
     c'' [
     \grace {
-      \setGrace
-      a ( 
+      \setGrace #23
+      a (
     }
-    g''-- ) e'' \grace { 
-      \setGrace
-      c' ( 
-      \setGrace
-      e'' 
-    } 
+    g''-- ) e'' \grace {
+      \setGrace #25
+      c' (
+      \setGrace #34
+      e''
+    }
     \set stemRightBeamCount = #1
     a )
 
     %57
     \grace {
-      \setGrace
-      c''32 ( 
+      \setGrace #32
+      c''32 (
     }
     \tuplet 7/4 {
       \set stemLeftBeamCount = #1
       e'16 ) c'16.
       \grace {
-        \setGrace
-        c'32 ( 
+        \setGrace #25
+        c'32 (
       }
       g''-^  ) a32 ]
     }
@@ -704,23 +723,23 @@ r16[  \stopTextSpan c'16.-^
     \override Stem.details.beamed-lengths = #'(6)
     %58
 
-    r32 [ 
+    r32 [
         \once \override TextSpanner.bound-details.left.text = "poco rit. "
-    \once \override TextSpanner.bound-details.right.padding = #3
+    \once \override TextSpanner.bound-details.right.padding = #-3
     \once \override TextSpanner.bound-details.left.padding = #-3
-    \once \override TextSpanner.extra-offset = #'(0 . 3)
+    \once \override TextSpanner.extra-offset = #'(0 . 2)
     \set stemRightBeamCount = #1
     c''16. \startTextSpan
 
     %59
     \set stemLeftBeamCount = #1
-    r16 
+    r16
     \set stemRightBeamCount = #1
     g''16
 
     %60
     \set stemLeftBeamCount = #1
-    c''16. 
+    c''16.
     \set stemLeftBeamCount = #3
     \set stemRightBeamCount = #1
     g''32--
@@ -735,19 +754,19 @@ r16[  \stopTextSpan c'16.-^
 
     %62
         \override Stem.details.beamed-lengths = #'(5)
-    r16 [ g''32 
+    r16 [ g''32
     \set stemRightBeamCount = #1
     c''32
 
     %63
     \set stemLeftBeamCount = #1
-    g''-- c'' 
+    g''-- c''
     \set stemRightBeamCount = #1
     g''16
 
     %64
     \set stemLeftBeamCount = #1
-    r32 
+    r32
 
     c''16.-^ ] \stopTextSpan
 
@@ -760,59 +779,59 @@ r16[  \stopTextSpan c'16.-^
     }
 %    \tempo 8 = 40
  %        \override Stem.details.beamed-lengths = #'(9)
-%     e'32 [ a e' 
+%     e'32 [ a e'
 %     \set stemRightBeamCount = #1
 %     a
-% 
-% 
+%
+%
 %     %66
 %     \set stemLeftBeamCount = #1
 %             \once \override TextSpanner.bound-details.left.text = "poco rit. "
-% 
+%
 %     e'32-- \startTextSpan
 %     c' a16 ]
-% 
+%
 %     \time 3/8
-% 
+%
 %     %67
-% 
+%
 %     r32  [
-%     c'16->  
+%     c'16->
 %     \set stemRightBeamCount = #1
 %     e'32
-% 
+%
 %     %68
 %     \set stemLeftBeamCount = #1
-%     a16 e'32 
+%     a16 e'32
 %     \set stemRightBeamCount = #1
 %     a32
-% 
+%
 %     %69
 %     \set stemLeftBeamCount = #1
 %     r32 e'16. ]
-% 
+%
 %     \time 3/8
-% 
+%
 %     %70
 %     r16 [ a32-- e'32
-% 
+%
 %     %71
 %     r8
-% 
+%
 %     %72
 %     c'32 a16 c'32 \stopTextSpan ]
-% 
-%     \break 
+%
+%     \break
 %     \time 3/8
 %         \override Stem.details.beamed-lengths = #'(8.5)
-% 
+%
 %     %73
 %     \tempo "Tempo 1°"
 %     r32 [ c'16.->
-% 
+%
 %     %74
 %     c'32 e'16.
-% 
+%
 %     %75
 %     \tuplet 5/4 {
 %       r16 c'16 c'32-- ]
@@ -826,9 +845,9 @@ r16[  \stopTextSpan c'16.-^
 
     %66
     \set stemLeftBeamCount = #1
-            \once \override TextSpanner.bound-details.left.text = "poco rit. "
 
-    g''32-- \startTextSpan
+
+    g''32--
     e'' c''16 ]
 
     \time 3/8
@@ -836,13 +855,15 @@ r16[  \stopTextSpan c'16.-^
     %67
 
     r32  [
-    e''16-^  
+    \once \override TextSpanner.extra-offset = #'(0 . 2)
+    \once \override TextSpanner.bound-details.left.text = "poco rit. "
+    e''16-^\startTextSpan
     \set stemRightBeamCount = #1
     g''32
 
     %68
     \set stemLeftBeamCount = #1
-    c''16 g''32 
+    c''16 g''32
     \set stemRightBeamCount = #1
     c''32
 
@@ -862,12 +883,15 @@ r16[  \stopTextSpan c'16.-^
     %72
     e''32 c''16 e''32 \stopTextSpan ]
 
-    \break 
+    \break
     \time 3/8
         \override Stem.details.beamed-lengths = #'(5)
 
     %73
-    \tempo "Tempo 1°"
+     \tempo \markup {
+      \teeny \general-align #Y #DOWN \note #"8" #1 "= 20"
+      "| mournful"
+     }
     r32 [ c'16.-^
 
     %74
@@ -914,14 +938,14 @@ r16[  \stopTextSpan c'16.-^
     %81
     \once \set tupletFullLength = ##t
     \tuplet 5/4 {
-      e''16 [  
+      e''16 [
       \set stemRightBeamCount = #1
-      f,16.-- ( 
+      f,16.-- (
     }
 
     %82
          \grace {
-       \setGrace
+       \setGrace #27
        e'32 )
      }
      \once \set tupletFullLength = ##t
@@ -949,6 +973,8 @@ r16[  \stopTextSpan c'16.-^
 
     %85
     \once \override TextSpanner.bound-details.left.text = "accel. "
+    \once \override TextSpanner.bound-details.right.padding = #'3
+    \once \override TextSpanner.extra-offset = #'(0 . 2)
     c'16.-^  [  \startTextSpan
     32--
 
@@ -958,7 +984,7 @@ r16[  \stopTextSpan c'16.-^
       e'8 r16 c32 ]
     }
 
-  
+
 
     \time 2/8
         \override Stem.details.beamed-lengths = #'(13)
@@ -971,11 +997,11 @@ r16[  \stopTextSpan c'16.-^
 
     %88
     r16. \grace {
-      \setGrace
-      c32 ( 
+      \setGrace #18
+      c32 (
     }
     a ) ]
-    
+
     \override Stem.details.beamed-lengths = #'(11)
 
     \time 2/8
@@ -999,9 +1025,12 @@ r16[  \stopTextSpan c'16.-^
 
     %92
     \once \set tupletFullLength = ##t
-    \tuplet 3/2 { 
-      \tempo 8 = 30
-      r32 [ 
+    \tuplet 3/2 {
+    \tempo \markup {
+      \teeny \general-align #Y #DOWN \note #"8" #1 "= 30"
+      "| gearing up"
+    }
+      r32 [
       \stopTextSpan
       c''16--  } f,16---^  ]
 
@@ -1011,11 +1040,13 @@ r16[  \stopTextSpan c'16.-^
 
     %93
     \once \override TextSpanner.bound-details.left.text = "accel. "
-  
+  \once \override TextSpanner.extra-offset = #'(0 . 3.75)
+  \once \override TextSpanner.bound-details.right.padding = #'-2
+  \once \override TextSpanner.bound-details.left.padding = #'3
     r32[   \startTextSpan
     c-^  a, \grace {
-      \setGrace
-      f,32 ( 
+      \setGrace #14
+      f,32 (
     }
     e'' )
 
@@ -1024,12 +1055,12 @@ r16[  \stopTextSpan c'16.-^
 
     %95
     r16 \grace {
-      \setGrace
-      e''32 ( 
+      \setGrace #34
+      e''32 (
     }
     f, ) \grace {
-      \setGrace
-      g'' ( 
+      \setGrace #36
+      g'' (
     }
     c ) ]
 
@@ -1047,13 +1078,13 @@ r16[  \stopTextSpan c'16.-^
     %97
     \once \set tupletFullLength = ##t
     \tuplet 7/4 {
-      f,8--  r32 e''16 
+      f,8--  r32 e''16
     }
 
     %98
     \grace {
-      \setGrace
-      e''32 ( 
+      \setGrace #34
+      e''32 (
     }
     \tuplet 7/4 {
       a,32 ) c''16-- g''32 f, a, c'' ]
@@ -1065,9 +1096,14 @@ r16[  \stopTextSpan c'16.-^
 
     %99
     r16 [ \stopTextSpan
-    \tempo 8 = 40
+    \once \override Score.MetronomeMark.extra-offset = #'(0 . 5.5)
+     \tempo \markup {
+      \teeny \general-align #Y #DOWN \note #"8" #1 "= 40"
+      "| prepared"
+     }
     \grace {
-      \setGrace
+      \setGrace #14
+%      \once \override Stem.length = #'20
       f,32 (
     }
     e''-^  ) c ]
@@ -1080,9 +1116,11 @@ r16[  \stopTextSpan c'16.-^
 
     %102
     \once \set tupletFullLength = ##t
-    \tuplet 3/2 { r16 [ 
+    \tuplet 3/2 { r16 [
                   \once \override TextSpanner.bound-details.left.text = "molto accel. "
-                  
+                  \once \override TextSpanner.extra-offset = #'(0 . 3)
+                  \once \override TextSpanner.bound-details.right.padding = #'-5
+
                   e''8 ] \startTextSpan }
 
     \time 2/8
@@ -1116,85 +1154,89 @@ r16[  \stopTextSpan c'16.-^
     }
 
     \once \set tupletFullLength = ##t
-    \tuplet 3/2 { r32 [ 
+    \tuplet 3/2 { r32 [
                   \set stemRightBeamCount = #1
                   c''16 }
     \tupletUp
     \tuplet 3/2 {
       \set stemLeftBeamCount = #1
       g''32  \grace {
-        \setGrace
-        e'' ( 
+        \setGrace #34
+        e'' (
       }
       e' )
       \grace {
-       \setGrace
-       a, ( \setGrace c''
+        \once \override Stem.details.beamed-lengths = #'(16)
+        \once \stemDown
+       a, (
+       \once \override Stem.details.beamed-lengths = #'(18)
+       \once \stemDown
+       c''
       }
       \set stemRightBeamCount = #1
-      a ) 
+      a )
     }
 
     %108
     \grace {
-      \setGrace
+      \setGrace #36
       g''32 (
     }\tuplet 3/2 {
       \set stemLeftBeamCount = #1
-      f,32-- ) 
-      
+      f,32-- )
+
       \grace {
-        \setGrace
-        e' ( 
+        \setGrace #27
+        e' (
       }
-      c'' ) \grace { 
-        \setGrace
-        a, ( 
-        \setGrace
-        c' } 
+      c'' ) \grace {
+        \setGrace #20
+        a, (
+        \setGrace #20
+        c' }
       \set stemRightBeamCount = #1
-      e''-- ) 
+      e''-- )
     }
     \grace {
-      \setGrace
+      \setGrace #14
       f,32 (
     }
     \tuplet 3/2 {
       \set stemLeftBeamCount = #1
-      e''-^   ) e'' 
+      e''-^   ) e''
       \set stemRightBeamCount = #1
-      c'' ( 
+      c'' (
     }
-    \grace  { 
-      \setGrace
-      c'32 
-      \setGrace
+    \grace  {
+      \setGrace #20
+      c'32
+      \setGrace #20
       g'' )
     }
     %109
     \tuplet 3/2 {
       \set stemLeftBeamCount = #1
-      r32 c'' 
+      r32 c''
       \set stemRightBeamCount = #1
       a
     }
-    \grace { 
-      \setGrace
-      a,32 ^( 
-      \setGrace
-      c'' 
+    \grace {
+      \setGrace #20
+      a,32 ^(
+      \setGrace #20
+      c''
     }
     \tuplet 3/2 {
       \set stemLeftBeamCount = #1
-      e'16-- ) 
+      e'16-- )
       \set stemRightBeamCount = #1
       \set stemLeftBeamCount = #3
-      g''32 ( 
+      g''32 (
     }
-    \grace  { 
-        \setGrace
-        a 
-        \setGrace
+    \grace  {
+        \setGrace #20
+        a
+        \setGrace #20
         e'' )
       }
 
@@ -1203,18 +1245,18 @@ r16[  \stopTextSpan c'16.-^
     \tuplet 7/4 {
       \set stemLeftBeamCount = #1
       r32  \grace {
-        \setGrace
+        \setGrace #32
         c''32 (
       }
       e'32  ) \grace {
-        \setGrace
-        f, ( 
+        \setGrace #14
+        f, (
       }
-      e''-- ) g''-^  \grace { 
-        \setGrace
+      e''-- ) g''-^  \grace {
+        \setGrace #20
         c (
-        \setGrace
-        c'' 
+        \setGrace #20
+        c''
       } a ) e'16 ]
     }
 
@@ -1225,39 +1267,39 @@ r16[  \stopTextSpan c'16.-^
     %111
     \tuplet 7/4 {
       g''32 [ c'' g''16 \grace {
-        \setGrace
-        f,32 ( 
+        \setGrace #14
+        f,32 (
       }
-      c'' ) a, 
+      c'' ) a,
       \set stemRightBeamCount = #1
       g''--
     }
 
     %112
     \grace {
-      \setGrace
-      e''32 ( 
+      \setGrace #34
+      e''32 (
     }
     \tuplet 3/2 {
       \set stemLeftBeamCount = #1
       c' ) \grace {
-        \setGrace
-        c'' ( 
+        \setGrace #32
+        c'' (
       }
-      a ) 
+      a )
       \set stemRightBeamCount = #1
       e''
     }
     \grace {
-      \setGrace
+      \setGrace #34
       e'' (
     }
     \once \set tupletFullLength = ##t
     \tuplet 3/2 {
       \set stemLeftBeamCount = #1
       a, ) \grace {
-        \setGrace
-        e'' ( 
+        \setGrace #34
+        e'' (
       }
       \set stemRightBeamCount = #1
       c'16 )
@@ -1265,13 +1307,13 @@ r16[  \stopTextSpan c'16.-^
 
     %113
     \grace {
-      \setGrace
-      a,32 ( 
+      \setGrace #16
+      a,32 (
     }
     \tuplet 3/2 {
       \set stemLeftBeamCount = #1
       e'16 ) \grace {
-        \setGrace
+        \setGrace #23
         a32 (
       }
       \set stemRightBeamCount = #1
@@ -1281,21 +1323,21 @@ r16[  \stopTextSpan c'16.-^
     \tuplet 3/2 {
       \set stemLeftBeamCount = #1
       e''32 \grace {
-        \setGrace
-        e'' ( 
+        \setGrace #34
+        e'' (
       }
-      a ) 
+      a )
       \set stemRightBeamCount = #1
       e'--
     }
 
     %114
-    \grace { 
-      \setGrace
-      e''32 ^( 
-      \setGrace
-      a,32 
-    } 
+    \grace {
+      \setGrace #20
+      e''32 ^(
+      \setGrace #20
+      a,32
+    }
     \once \set tupletFullLength = ##t
     \tuplet 5/4 {
       \set stemLeftBeamCount = #1
@@ -1305,9 +1347,12 @@ r16[  \stopTextSpan c'16.-^
   \break
     \time 3/8
     %115
-    
+
         \override Stem.details.beamed-lengths = #'(13.5)
-    \tempo "subito Tempo 1°"
+     \tempo \markup {
+      \teeny \general-align #Y #DOWN \note #"8" #1 "= 20 subito"
+      "| inevitable"
+     }
     r16 [
     a,32-^
     \set stemRightBeamCount = #1
@@ -1316,13 +1361,13 @@ r16[  \stopTextSpan c'16.-^
 
     %116
     \set stemLeftBeamCount = #1
-    f,16 c32 
+    f,16 c32
     \set stemRightBeamCount = #1
     f,--
 
     %117
     \set stemLeftBeamCount = #1
-    r16. 
+    r16.
     \once \override TextSpanner.bound-details.left.text = "molto rit. "
     \once \override TextSpanner.bound-details.left.padding = #-5
     \once \override TextSpanner.bound-details.right.padding = #-10
@@ -1338,7 +1383,7 @@ r16[  \stopTextSpan c'16.-^
 
     %119
     \set stemLeftBeamCount = #1
-    a,16-^  
+    a,16-^
     \set stemRightBeamCount = #1
     a,16
 
