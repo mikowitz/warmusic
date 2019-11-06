@@ -106,7 +106,7 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
 
     %8
     \set stemLeftBeamCount = 1
-    c\marcato f, a,
+    c f, a,
     \grace {
        \setGrace #23
       a32 (
@@ -424,7 +424,7 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
 
     %31
         \tempo \markup {
-      \teeny \general-align #Y #DOWN \note #"8" #1 "= 20 subito"
+      \teeny \general-align #Y #DOWN \note #"8" #1 "= 20" \italic "subito"
       "| restrained"
     }
 
@@ -658,7 +658,7 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
     c32 [ ) g'' \grace {
 
       \setGrace #25
-%       \once \override Stem.details.beamed-length = #'(25)
+      \once \override Stem.details.beamed-length = #'(25)
       c' ( \setGrace #34
       e''
     }
@@ -667,16 +667,17 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
       c'' (
     }
     \set stemRightBeamCount = #1
-    \afterGrace
-    c' ) ( {
+
+    c' )
+    \grace {
       \setGrace #27
-      e' )
+      e' (
     }
 
     %55
     \tuplet 7/4 {
       \set stemLeftBeamCount = #1
-      r16 g''-^  a32 e' c'---^ \stopTextSpan ]
+      r16 ) g''-^  a32 e' c'---^ \stopTextSpan ]
      }
 
     \time 2/8
@@ -940,19 +941,19 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
     \tuplet 5/4 {
       e''16 [
       \set stemRightBeamCount = #1
-      f,16.-- (
+      f,16.--
     }
 
     %82
          \grace {
        \setGrace #27
-       e'32 )
+       e'32 (
      }
      \once \set tupletFullLength = ##t
     \tuplet 7/4 {
     \set stemLeftBeamCount = #1
     \set stemRightBeamCount = #3
-     r32 a,8 a16 ]
+     r32 ) a,8 a16 ]
     }
 
     \override Stem.details.beamed-lengths = #'(11)
@@ -1190,9 +1191,11 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
         e' (
       }
       c'' ) \grace {
-        \setGrace #20
+        \once \override Stem.details.beamed-lengths = #'(14)
+        \once \stemDown
         a, (
-        \setGrace #20
+        \once \override Stem.details.beamed-lengths = #'(14)
+        \once \stemDown
         c' }
       \set stemRightBeamCount = #1
       e''-- )
@@ -1205,25 +1208,29 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
       \set stemLeftBeamCount = #1
       e''-^   ) e''
       \set stemRightBeamCount = #1
-      c'' (
+      c''
     }
     \grace  {
-      \setGrace #20
-      c'32
-      \setGrace #20
-      g'' )
+      \once \override Stem.details.beamed-lengths = #'(20)
+        \once \stemDown
+      c'32 (
+      \once \override Stem.details.beamed-lengths = #'(20)
+        \once \stemDown
+      g''
     }
     %109
     \tuplet 3/2 {
       \set stemLeftBeamCount = #1
-      r32 c''
+      r32 ) c''
       \set stemRightBeamCount = #1
       a
     }
     \grace {
-      \setGrace #20
+      \once \override Stem.details.beamed-lengths = #'(18)
+        \once \stemDown
       a,32 ^(
-      \setGrace #20
+     \once \override Stem.details.beamed-lengths = #'(18)
+        \once \stemDown
       c''
     }
     \tuplet 3/2 {
@@ -1231,20 +1238,22 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
       e'16-- )
       \set stemRightBeamCount = #1
       \set stemLeftBeamCount = #3
-      g''32 (
+      g''32
     }
     \grace  {
-        \setGrace #20
-        a
-        \setGrace #20
-        e'' )
+       \once \override Stem.details.beamed-lengths = #'(19)
+        \once \stemDown
+        a (
+       \once \override Stem.details.beamed-lengths = #'(19)
+        \once \stemDown
+        e''
       }
 
     %110
     \once \set tupletFullLength = ##t
     \tuplet 7/4 {
       \set stemLeftBeamCount = #1
-      r32  \grace {
+      r32 )  \grace {
         \setGrace #32
         c''32 (
       }
@@ -1253,9 +1262,11 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
         f, (
       }
       e''-- ) g''-^  \grace {
-        \setGrace #20
+        \once \override Stem.details.beamed-lengths = #'(18)
+        \once \stemDown
         c (
-        \setGrace #20
+        \once \override Stem.details.beamed-lengths = #'(18)
+        \once \stemDown
         c''
       } a ) e'16 ]
     }
@@ -1333,9 +1344,11 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
 
     %114
     \grace {
-      \setGrace #20
+      \once \override Stem.details.beamed-lengths = #'(11)
+        \once \stemDown
       e''32 ^(
-      \setGrace #20
+     \once \override Stem.details.beamed-lengths = #'(11)
+        \once \stemDown
       a,32
     }
     \once \set tupletFullLength = ##t
@@ -1350,7 +1363,7 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
 
         \override Stem.details.beamed-lengths = #'(13.5)
      \tempo \markup {
-      \teeny \general-align #Y #DOWN \note #"8" #1 "= 20 subito"
+      \teeny \general-align #Y #DOWN \note #"8" #1 "= 20" \italic "subito"
       "| inevitable"
      }
     r16 [
