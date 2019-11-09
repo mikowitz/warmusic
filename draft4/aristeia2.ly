@@ -56,21 +56,20 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
       \teeny \general-align #Y #DOWN \note #"16" #1.3 "= 40"
       "| deliberate, preparatory"
     }
-    %\stemDown
-    f,32-^ [
+    f,32-^ [ \ff \>
     %f,32--->  [
     a, a,
-    a, ]
+    a, \p ]
 
     %2
     r16. [
 
 %    \once \override Stem.length = #26
 
-    c32 ]
+    c32 ] \pp
 
     %3
-    r16  [ a,32 a, ]
+    r16  [ a,32 \mp\> a, ]
 
    % \time 3/8
 
@@ -88,7 +87,7 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
 
     %6
 
-    r32[  f, a,16 ]
+    r32[  f, a,16 \p ]
 
     \time 2/8
 
@@ -98,7 +97,7 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
     \once \override TextSpanner.bound-details.left.text = "slight accel."
     \once \override TextSpanner.bound-details.right.padding = #7
 %    \once \override DynamicText.extra-offset = #'(0 . 3)
-    c32-^  \startTextSpan
+    c32-^  \startTextSpan \ff \>
     c
 
     c ]
@@ -111,7 +110,7 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
     }
 
 %    \once \override DynamicText.extra-offset = #'(0 . 2)
-    f,32
+    f,32 \pp
      ]
 
 
@@ -129,7 +128,7 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
        c'32
      }
     \tuplet 7/4 {
-    r16[  \stopTextSpan c'16.-^
+    r16[  \stopTextSpan c'16.-^ \ff \>
  %   --
 %   ->
       c32
@@ -161,9 +160,9 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
     }
     \tuplet 7/4 {
 
-      c'16  [ c'32 c'32 a f,
+      c'16 \pp [ c'32 c'32 a f,
 
-      e'-^ ] %->
+      e'-^ ] \ff \>
     }
 
     % 12
@@ -178,7 +177,7 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
         \setGrace #18
         c32
 
-      }c'32  ]
+      }c'32  ] \mp
     }
 
     %\time 2/8
@@ -187,7 +186,9 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
     r32 [ \grace {
       \setGrace #25
       c'
-    }a,  \grace {
+    }
+    a, \<
+    \grace {
       \setGrace #14
       f,
     }
@@ -206,12 +207,12 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
     \once \override TextSpanner.bound-details.left.padding = #-5
 
     \once \override TextSpanner.bound-details.right.padding = #-2
-    e' %->
+    e' \ff
     -^ \startTextSpan \grace  {
       \setGrace #14
     f,
     }
-    a-^ e' \stopTextSpan ]
+    a-^ e' \stopTextSpan ] \mf
 
 
     \time 3/8
@@ -222,7 +223,7 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
       "| but now restless"
     }
     %\tempo 8 = 15
-    r32 [ a,16--
+    r32 [ a,16-- \>
 
     f,32 ]
 
@@ -231,7 +232,7 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
 
       c32 [ c'16.
 
-      a16. ]
+      a16. ] \p
     }
 
     % 17
@@ -241,14 +242,16 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
 
       e'32
     }
-    a,16.  ]
+    a,16. \pp ]
 
     %\time 3/8
 
 
     % 18
     \tuplet 5/4 {
-      a,32 [ \grace {
+      a,32 [ \<
+
+      \grace {
         \setGrace #23
         a
       }f,16.
@@ -264,12 +267,12 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
 
       c'16 [
 
-      c'16. ]
+      c'16. ] \mp
     }
 
     % 20
     \tuplet 5/4 {
-      r32 [ a8 ]
+      r32 [ a8 ] \pp
     }
 
 \break
@@ -280,14 +283,14 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
       \setGrace #16
       a,32
     }
-    e'16.-^  [
-    f,32 ]
+    e'16.-^  [ \ff
+    f,32 ] \mp
 
     % 22
 
     r32 [
 
-    a16. ]
+    a16. ] \mf\>
 
     % 23
 
@@ -318,7 +321,7 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
     % 25
     \tuplet 5/4 {
 
-      c'32 [ c16 a16 ]
+      c'32 [ c16 a16 ] \p
     }
 
 
@@ -329,7 +332,7 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
       \setGrace #16
       a,32
     }
-    c'--  [
+    c'--  [ \<
     \grace {
       \setGrace #18
       c
@@ -346,7 +349,9 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
     \grace {
       \setGrace #18
       c
-    }e'-^  \grace {
+    }
+    e'-^  \ff
+    \grace {
       \setGrace #14
       f,
     }
@@ -360,7 +365,7 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
     % 28
     \tuplet 6/4 {
       r16 [
-      c'32
+      c'32 \pp \<
 
       c16
 
@@ -386,7 +391,9 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
     c'  [ \grace {
       \setGrace #16
       a,
-    }e'-^  c'16 \stopTextSpan ]
+    }
+    e'-^   \ff
+    c'16 \stopTextSpan ]
 
   \break
 \time 1/8
@@ -403,24 +410,24 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
       "| restrained"
     }
     r16 [
-    c'32
+    c'32 \ff
 
     c' ]
 
     %33
 
-    r32 [ c'16. ]
+    r32 [ c'16. ] \mf \>
 
     %\time 2/8
 
     %34
     a16. [
 
-    e'32 ]
+    e'32 ] \p
 
     %35
 
-    r32 [ a32-- c' c'-^ ]
+    r32 [ a32-- \< c' c'-^ ] \ff
 
 
     %\time 2/8
@@ -429,24 +436,24 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
     \once \override TextSpanner.bound-details.left.text = "accel. "
     \once \override TextSpanner.extra-offset = #'(0 . 2.5)
     \once \override TextSpanner.bound-details.right.padding = #-4.5
-    c'16. [ \startTextSpan
+    c'16. [ \startTextSpan \>
 
     c'32 ]
 
     %37
 
-    c'32 [ e' a16 ]
+    c'32 [ e' a16 ] \mp
 
     %\time 2/8
 
     %38
-    r32 [ e'16
+    r32 [ e'16 \pp
 
     c'32-- ]
 
     %39
 
-    r32 [ a32 e'16 \stopTextSpan ]
+    r32 [ a32 \p e'16 \stopTextSpan ]
 
    % \break
     \time 3/8
@@ -458,23 +465,24 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
       "| eager"
     }
     r32 [
-    a e' \grace {
+    a \< e'
+    \grace {
       \setGrace #25
 %      \once \override Stem.length = #23
       c'
     }
 
-    c''---^  ]
+    c''---^  ] \ff
 
 
     %41
     \tuplet 7/4 {
-      r8. [ c'32 ]
+      r8. [ c'32 ] \mf
     }
 
     %42
     \tuplet 3/2 {
-      r8 [ a16 ]
+      r8 [ a16 ] \p
     }
 
     %\break
@@ -490,7 +498,7 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
     }
     \once \set tupletFullLength = ##t
     \tuplet 7/4 {
-      e'16.  [
+      e'16.  [ \pp
       a16
 
       e'16-- ]
@@ -506,14 +514,14 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
 
       a32
 
-      e'-^  c'  ]
+      e'-^  \ff  c'  ]
     }
 
     %\time 2/8
 
     %45
     \tuplet 7/4 {
-      r16 [ e''32 a16 c'32
+      r16 [ e''32 \mf \> a16 c'32
       e' ]
     }
 
@@ -521,7 +529,7 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
     \tuplet 6/4 {
       g''16 [
       a32
-      e''32 e'16 ]
+      e''32 e'16 ] \p
     }
 
     %\time 2/8
@@ -530,7 +538,7 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
     \tuplet 6/4 {
     r16. [
 
-    e''16
+    e''16 \<
                         a32 ] }
 
     %48
@@ -542,18 +550,18 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
     \setGrace #36
       g''
     }
-    a-^  ]
+    a-^  ] \ff
 
     %\time 2/8
 
     %49
-    r32 [ e'
+    r32 [ e' \p \<
 
     c'16 ]
 
     %50
 
-    c''32 [ a e'' e'' ]
+    c''32 [ a e'' \mf \> e'' ]
 
     %\time 3/8
 
@@ -566,7 +574,7 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
       \once \override TextSpanner.bound-details.right.padding = #'-1.5
       e''32 [ \startTextSpan c' c'16.
 
-      e''16--  ]
+      e''16--  ] \mp
     }
 
     %52
@@ -575,7 +583,8 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
     \time 4/8
     \tuplet 5/4 {
 
-      r32 [ e'' c' \grace {
+      r32 [ e'' \mp \< c'
+      \grace {
         \setGrace #27
        % \once \override Stem.length = #25
         e'
@@ -603,7 +612,7 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
         \setGrace #23
         a32
       }
-      c''16-^   ]
+      c''16-^   ] \ff
     }
 
     %\time 2/8
@@ -613,7 +622,7 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
       \setGrace #25
       c'
     }
-    c32 [ g'' \grace {
+    c32 \mp \< [ g'' \grace {
 
       \setGrace #25
       \once \override Stem.details.beamed-length = #'(25)
@@ -634,7 +643,7 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
 
     %55
     \tuplet 7/4 {
-      r16 [ g''-^  a32 e' c'---^ \stopTextSpan ]
+      r16 [ g''-^ \ff a32 \mp e' c'---^ \stopTextSpan ] \ff
      }
 
     \noBreak
@@ -646,7 +655,7 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
       \teeny \general-align #Y #DOWN \note #"16" #1.3 "= 120"
       "| overeager"
      }
-    c'' [
+    c'' [ \>
     \grace {
       \setGrace #23
       a
@@ -658,7 +667,7 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
       e''
     }
 
-    a  ]
+    a  ] \p
 
     %57
     \grace {
@@ -667,12 +676,12 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
     }
     \tuplet 7/4 {
 
-      e'16 [ c'16.
+      e'16 \< [ c'16.
       \grace {
         \setGrace #25
         c'32
       }
-      g''-^  a32 ]
+      g''-^ \ff a32 ]
     }
 
     %\time 4/8
@@ -686,13 +695,13 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
     \once \override TextSpanner.bound-details.left.padding = #-3
     \once \override TextSpanner.extra-offset = #'(0 . 2)
 
-    c''16.]  \startTextSpan
+    c''16.]  \startTextSpan \ff
 
     %59
 
     r16 [
 
-    g''16 ]
+    g''16 ] \p \<
 
     %60
 %    \break
@@ -704,14 +713,14 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
 
     %61
 
-    e''32 [ c''16 e''32 ]
+    e''32 [ c''16 e''32 ] \mf
 
     %\break
     \break
     %\time 3/8
 
     %62
-    r16 [ g''32
+    r16 [ g''32 \mp \<
 
     c''32 ]
 
@@ -723,7 +732,7 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
     %64
     r32 [
 
-    c''16.-^ ] \stopTextSpan
+    c''16.-^ ] \stopTextSpan \ff
 
     \time 2/8
 
@@ -732,62 +741,6 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
       \teeny \general-align #Y #DOWN \note #"16" #1.3 "= 80"
       "| victorious"
     }
-%    \tempo 8 = 40
-%     e'32 [ a e'
-%     a
-%
-%
-%     %66
-%     \set stemLeftBeamCount = #1
-%             \once \override TextSpanner.bound-details.left.text = "poco rit. "
-%
-%     e'32-- \startTextSpan
-%     c' a16 ]
-%
-%     \time 3/8
-%
-%     %67
-%
-%     r32  [
-%     c'16->
-%     \set stemRightBeamCount = #1
-%     e'32
-%
-%     %68
-%     \set stemLeftBeamCount = #1
-%     a16 e'32
-%     \set stemRightBeamCount = #1
-%     a32
-%
-%     %69
-%     \set stemLeftBeamCount = #1
-%     r32 e'16. ]
-%
-%     \time 3/8
-%
-%     %70
-%     r16 [ a32-- e'32
-%
-%     %71
-%     r8
-%
-%     %72
-%     c'32 a16 c'32 \stopTextSpan ]
-%
-%     \break
-%     \time 3/8
-%
-%     %73
-%     \tempo "Tempo 1°"
-%     r32 [ c'16.->
-%
-%     %74
-%     c'32 e'16.
-%
-%     %75
-%     \tuplet 5/4 {
-%       r16 c'16 c'32-- ]
-%     }
 
     g''32
     _\markup { \italic "non dim." }
@@ -808,13 +761,13 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
     r32  [
     \once \override TextSpanner.extra-offset = #'(0 . 2)
     \once \override TextSpanner.bound-details.left.text = "poco rit. "
-    e''16-^\startTextSpan
+    e''16-^\startTextSpan \ff \>
     g''32 ]
 
     %68
     c''16 [
     g''32
-    c''32 ]
+    c''32 ] \mp
 
     %69
     r32 [ g''16. ]
@@ -823,13 +776,14 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
     %\time 3/8
 
     %70
-    r16 [ c''32-- g''32 ]
+    r16 [ c''32-- \mp
+    g''32 ]
 
     %71
     r8
 
     %72
-    e''32 [ c''16 e''32 \stopTextSpan ]
+    e''32 \< [ c''16 e''32 \stopTextSpan ] \f
 
     %\break
    % \break
@@ -840,7 +794,7 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
       \teeny \general-align #Y #DOWN \note #"16" #1.3 "= 40"
       "| mournful"
      }
-    r32 [ c'16.-^ ]
+    r32 [ c'16.-^ ] \ff \>
 
     %74
     e''32 [
@@ -855,19 +809,17 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
     %\time 3/8
 
     %76
-    \once \set tupletFullLength = ##t
     \tuplet 7/4 {
-      r32 [ c'8
+      r32 [ c'8 \p
       r16 ]
     }
 
     %77
     \tuplet 7/4 {
-      r16 [ c'8-^  r32 ]
+      r16 [ c'8-^ \ff r32 ]
     }
 
     %78
-    \once \set tupletFullLength = ##t
     \tuplet 7/4 {
       r8 [ a16.-^ ]
      }
@@ -880,16 +832,15 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
     \time 3/8
 
     %80
-    r16 [ g''16 ]
+    r16 [ g''16 ] \mp
 
 
 
   %  \time 2/8
     %81
-    \once \set tupletFullLength = ##t
     \tuplet 5/4 {
       e''16 [
-      f,16.-- ]
+      f,16.-- ] \p
     }
 
     %82
@@ -897,9 +848,8 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
        \setGrace #27
        e'32
      }
-     \once \set tupletFullLength = ##t
     \tuplet 7/4 {
-     r32 [  a,8 a16 ]
+     r32 [  a,8 \< a16 ]
     }
 
 
@@ -907,12 +857,11 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
     \time 2/8
 
     %83
-    c'32 [ 16 32 ]
+    c'32 [ 16 32 ] \mf
 
     %84
-    \once \set tupletFullLength = ##t
     \tuplet 7/4 {
-      r8 [ c16. ]
+      r8 [ c16. ] \f
     }
 
 \break
@@ -922,23 +871,23 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
     \once \override TextSpanner.bound-details.left.text = "accel. "
     \once \override TextSpanner.bound-details.right.padding = #'3
     \once \override TextSpanner.extra-offset = #'(0 . 2)
-    c'16.-^  [  \startTextSpan
+    c'16.-^  [  \startTextSpan \ff \>
+
     32-- ]
 
 
     %86
     \tuplet 7/4 {
-       e'8 [ r16 c32 ]
+       e'8 \! [ r16 c32 ] \mp
     }
 
 
 
     %\time 2/8
     %87
-    \once \set tupletFullLength = ##t
     \tuplet 5/4 {
       r16 [
-      c32
+      c32 \p
       c16 ]
     }
 
@@ -956,13 +905,13 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
     %89
     \tuplet 6/4 {
     r16. [
-    e'16
+    e'16 \<
 
                   f,32 ] }
 
     %90
     \tuplet 5/4 {
-      c'16. [ a,32 a32 ]
+      c'16. [ a,32 a32 ] \mf
     }
 
 
@@ -975,7 +924,6 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
     %92
     %\break
     \time 3/8
-    \once \set tupletFullLength = ##t
     \tuplet 6/4 {
     \tempo \markup {
       \teeny \general-align #Y #DOWN \note #"16" #1.3 "= 60"
@@ -983,7 +931,8 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
     }
       r32 [
       \stopTextSpan
-      c''16--   f,16.---^  ]
+      c''16--  \mp
+      f,16.---^  ] \ff
     }
 
     %\time 3/8
@@ -992,14 +941,16 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
     %93
 
     r32[
-    c-^  a, \grace {
+    c-^ \>  a,
+
+    \grace {
       \setGrace #14
       f,32
     }
     e''  ]
 
     %94
-    r32 [ e''16
+    r32 [  e''16 \mp
 
     a,32 ]
 
@@ -1010,7 +961,8 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
       \setGrace #34
       e''32
     }
-    f, \grace {
+    f,  \<
+    \grace {
       \setGrace #36
       g''
     }
@@ -1021,22 +973,21 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
     %$\time 3/8
 
     %96
-    \once \set tupletFullLength = ##t
     \tuplet 7/4 {
       c32 [
               \once \override TextSpanner.bound-details.left.text = "accel. "
   \once \override TextSpanner.extra-offset = #'(0 . 3.75)
     \once \override TextSpanner.bound-details.right.padding = #'-2
-      e''16.-^
+      e''16.-^ \ff \>
       \startTextSpan
       e''32 a,16 ]
     }
 
     %97
-    \once \set tupletFullLength = ##t
     \tuplet 7/4 {
-      f,8--  [ r32
-      e''16 ]
+      f,8--  [  \!
+      r32
+      e''16 ] \<
     }
 
     %98
@@ -1045,7 +996,7 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
       e''32
     }
     \tuplet 7/4 {
-      a,32 [ c''16-- g''32 f, a, c'' ]
+      a,32 [ c''16-- g''32 f, a, c'' ] \mf
     }
 
    % \break
@@ -1063,9 +1014,9 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
     \grace {
       \setGrace #14
 %      \once \override Stem.length = #'20
-      f,32 (
+      f,32
     }
-    e''-^  ) c ]
+    e''-^  \ff c ]
 
     %100
     r8
@@ -1074,44 +1025,42 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
     r8
 
     %102
-    \once \set tupletFullLength = ##t
     \tuplet 6/4 {
 
       r16 [
 
 
-                  e''8 ]  }
+                  e''8 ]  \mp
+    }
 
     %\break
     %\time 4/8
     %103
-    \once \set tupletFullLength = ##t
     \tuplet 5/4 {
       r32 [
  \once \override TextSpanner.bound-details.left.text = "molto accel. "
  \once \override TextSpanner.extra-offset = #'(0 . 3)
  \once \override TextSpanner.bound-details.right.padding = #'-5
-    a,32
+    a,32 \p
 
       \startTextSpan
       e''16. ]
     }
 
     %104
-    r16 [ e''32-- c ]
+    r16 [ e''32-- \mf c ]
 
     %\break
     %\time 2/8
     %105
-    \once \set tupletFullLength = ##t
     \tuplet 7/4 {
       r8 [ r32
-      e''16-^ ]
+      e''16-^ ] \ff
      }
 
 
     %106
-    g''32 [ f,16. ] \stopTextSpan
+    g''32 \mp [ f,16. ] \stopTextSpan
 
 %\break
     \break
@@ -1122,9 +1071,8 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
       "| unrestrained, but exact"
     }
 
-    \once \set tupletFullLength = ##t
     \tuplet 6/4 { r32 [
-                  c''16
+                  c''16 \p \<
       g''32  \grace {
         \setGrace #34
         e''
@@ -1166,7 +1114,8 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
       f,32
     }
 
-      e''-^    e''
+      e''-^   \ff
+      e''
       c'' ]
     }
 
@@ -1182,7 +1131,7 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
     }
     %109
     \tuplet 6/4 {
-      r32  [ c''
+      r32  [ c'' \mf \>
       a
     \grace {
       \once \override Stem.details.beamed-lengths = #'(18)
@@ -1192,7 +1141,7 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
         \once \stemDown
       c''
     }
-      e'16--
+      e'16-- \p \<
       g''32 ]
     }
 
@@ -1208,7 +1157,6 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
       }
 
     %110
-    \once \set tupletFullLength = ##t
     \tuplet 7/4 {
       r32 [  \grace {
         \setGrace #32
@@ -1218,7 +1166,8 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
         \setGrace #14
         f,
       }
-      e''--  g''-^  \grace {
+      e''--  g''-^  \ff
+      \grace {
         \once \override Stem.details.beamed-lengths = #'(18)
         \once \stemDown
         c
@@ -1233,7 +1182,8 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
     %\time 2/8
     %111
     \tuplet 7/4 {
-      g''32 [ c'' g''16 \grace {
+      g''32 [ \pp \<
+      c'' g''16 \grace {
         \setGrace #14
         f,32
       }
@@ -1257,7 +1207,6 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
       \setGrace #34
       e''
     }
-    \once \set tupletFullLength = ##t
 
       a,  \grace {
         \setGrace #34
@@ -1277,7 +1226,7 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
         \setGrace #23
         a32
       }
-      g''32-^
+      g''32-^ \ff \>
 
       e''32 \grace {
         \setGrace #34
@@ -1296,9 +1245,9 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
         \once \stemDown
       a,32
     }
-    \once \set tupletFullLength = ##t
     \tuplet 5/4 {
-      e''32 a, c''16.-^ ]
+      e''32 a, \pp
+      c''16.-^ ] \ff
      }
 
   %  \break
@@ -1310,12 +1259,12 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
       "| inevitable"
      }
     r16 [
-    a,32-^
+    a,32-^ \ff \>
     32 ]
 
 
     %116
-    f,16 [ c32
+    f,16 \pp [ c32
     f,-- ]
 
     %117
@@ -1324,7 +1273,7 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
     \once \override TextSpanner.bound-details.left.padding = #-5
     \once \override TextSpanner.bound-details.right.padding = #-10
     \once \override TextSpanner.extra-offset = #'(0 . 3)
-    a,32 \startTextSpan ]
+    a,32\< \startTextSpan ]
 
     \time 3/8
     %118
@@ -1332,15 +1281,16 @@ setGrace = #(define-music-function (parser location stemLen) (number?)
     32 ]
 
     %119
-    a,16-^ [
-    a,16 ]
+    a,16-^ [ \ff
+    a,16 ] \mf
 
     %120
-    r32 [ c32 f,16 \stopTextSpan ]
+    r32 [ c32 \mp
+    f,16 \pp \stopTextSpan ]
 
     \bar "|."
   }
-  \aristeiaDynamics
+  %\aristeiaDynamics
   >>
   \layout {
 
