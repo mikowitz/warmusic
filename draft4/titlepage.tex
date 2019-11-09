@@ -1,0 +1,88 @@
+% !TEX TS-program = lualatexmk
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[papersize={12in, 9in}, margin=0.5in]{geometry}
+\usepackage{fontspec,graphicx,nopageno,tikz,xltxtra,xunicode}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usetikzlibrary{calc}
+\usepackage[LGR]{fontenc}
+\usepackage[greek,english]{babel}
+\defaultfontfeatures{Scale=MatchLowercase}
+\newlength{\drop}
+\parindent=0pt
+\setmainfont{Adobe Garamond Pro}
+
+\usepackage{fontspec}
+\setmainfont[Ligatures=TeX]{Times New Roman}
+\newfontfamily\greekfont[Scale=MatchUppercase,Ligatures=TeX]{Times New Roman}
+
+\newenvironment{greekpar}           % Greek paragraph
+    {\greekfont}{}
+
+\begin{document}
+    \begin{titlepage}
+
+        % \begin{tikzpicture}[remember picture, overlay]
+        %     \draw[line width = 2pt]
+        %         ($(current page.north west) + (0.5in,-0.5in)$)
+        %         rectangle
+        %         ($(current page.south east) + (-0.5in,0.5in)$);
+        % \end{tikzpicture}
+
+        \drop=0.1\textheight
+        \centering
+
+        % \vspace*{10\baselineskip}
+        \hspace{2em}
+        \vfill
+        {
+            \scalebox{1}[2]
+            % {\fontsize{1.5cm}{1em}\selectfont \textit{\textbf{UN \hspace{.2em} JOUR \hspace{.2em} À \hspace{.2em} ROUEN}}}
+            {\fontsize{2.5cm}{1em}\selectfont \textit{\textbf{A r i s t e i a}}}
+        }
+
+        \vspace*{1\baselineskip}
+
+        % {
+        %   {\fontsize{1.5cm}{1em}\selectfont \textit{\textbf{'A \alpha}}}
+        %   }
+        {
+            \scalebox{1}[2]
+            % {\fontsize{1.5cm}{1em}\selectfont \textit{\textbf{UN \hspace{.2em} JOUR \hspace{.2em} À \hspace{.2em} ROUEN}}}
+            {\fontsize{1.1cm}{1em}\textit{\textbf{
+                \begin{greekpar}
+                  Ἀ ρ ι σ τ ε ί α
+                \end{greekpar}
+              }}}
+        }
+        \vspace*{.5\baselineskip}
+
+        % \vspace*{5\baselineskip}
+
+        {
+          \begin{center}
+            \scalebox{1}[2]
+            {\fontsize{.75cm}{1em}\selectfont \hspace{10em} michael \hspace{1pt} berkowitz \hspace{1pt}}
+          \end{center}
+        }
+
+
+        \vfill
+
+        {
+            \scalebox{1}[2]
+            {\fontsize{0.5cm}{1em}\selectfont \itshape for solo percussionist}
+        }
+
+        \vspace*{1\baselineskip}
+
+        {
+            \scalebox{1}[2]
+            {\fontsize{0.5cm}{1em}\selectfont \itshape (2019)}
+        }
+
+        \vspace*{2\baselineskip}
+
+    \end{titlepage}
+\end{document}

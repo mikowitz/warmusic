@@ -15,7 +15,7 @@ xelatex perf_notes.tex
 # xelatex test.tex
 # xelatex titlepage.tex
 
-pdftk titlepage.pdf perf_notes.pdf aristeia2.pdf cat output full.pdf && open full.pdf
+pdftk titlepage.pdf perf_notes.pdf aristeia2.pdf cat output aristeia.pdf && open aristeia.pdf
 
 
 

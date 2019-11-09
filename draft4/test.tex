@@ -1,0 +1,23 @@
+% !TEX TS-program = lualatexmk
+\documentclass[11pt,a4paper]{scrartcl}
+
+\usepackage{fontspec}
+\setmainfont[Ligatures=TeX]{Times New Roman}
+\newfontfamily\greekfont[Scale=MatchUppercase,Ligatures=TeX]{Arial Unicode MS}
+
+\newcommand{\textgreek}[1]
+    {\bgroup\greekfont{#1}\egroup} % Greek text
+
+\newenvironment{greekpar}           % Greek paragraph
+    {\greekfont}{}
+
+\begin{document}
+
+This is English with some Greek: \textgreek{γέγονεν}.
+
+\begin{greekpar}
+πάντες ἄνθρωποι τοῦ εἰδέναι ὀρέγονται φύσει. \textrm{And this is a Greek paragraph with some English.} σημεῖον δ᾽ ἡ τῶν αἰσθήσεων ἀγάπησις: καὶ γὰρ χωρὶς τῆς χρείας ἀγαπῶνται δι᾽ αὑτάς, καὶ μάλιστα τῶν ἄλλων ἡ διὰ τῶν ὀμμάτων. οὐ γὰρ μόνον ἵνα πράττωμεν ἀλλὰ καὶ μηθὲν μέλλοντες πράττειν τὸ ὁρᾶν αἱρούμεθα ἀντὶ πάντων ὡς εἰπεῖν τῶν ἄλλων. αἴτιον δ᾽ ὅτι μάλιστα ποιεῖ γνωρίζειν ἡμᾶς αὕτη τῶν αἰσθήσεων καὶ πολλὰς δηλοῖ διαφοράς. φύσει μὲν οὖν αἴσθησιν ἔχοντα γίγνεται τὰ ζῷα, ἐκ δὲ ταύτης τοῖς μὲν αὐτῶν οὐκ ἐγγίγνεται μνήμη, τοῖς δ᾽ ἐγγίγνεται.
+\end{greekpar}
+
+Isn't that quite nice? \textgreek{εὕρηκα!}
+\end{document}

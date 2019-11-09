@@ -1,0 +1,5 @@
+{
+  \displayMusic {
+    c4 ->
+  }
+}

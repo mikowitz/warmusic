@@ -1,0 +1,16 @@
+#!/usr/bin/env sh
+
+lilypond aristeia2.ly
+lilypond nonagram.ly
+
+pdfcrop --margins "10 10 10 -210" nonagram.pdf instruments-cropped.pdf
+pdfcrop --margins "10 -210 10 10" nonagram.pdf tuplets-cropped.pdf
+
+xelatex titlepage.tex
+xelatex perf_notes.tex
+
+pdftk titlepage.pdf perf_notes.pdf aristeia2.pdf cat output aristeia.pdf && open aristeia.pdf
+
+
+
+
