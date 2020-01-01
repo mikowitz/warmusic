@@ -67,7 +67,8 @@ setDynOffset = #(define-music-function (parser location yOffset) (pair?)
     \override TupletNumber.text = #tuplet-number::calc-denominator-text
     \override TupletBracket.bracket-visibility = ##t
      \set tupletFullLength = ##t
-     \override Staff.TimeSignature.style = #'single-digit
+     %\override Staff.TimeSignature.style = #'single-digit
+
     \startStaff
       \override Beam #'damping = #+inf.0
   \override TupletBracket #'damping = #+inf.0
@@ -77,7 +78,9 @@ setDynOffset = #(define-music-function (parser location yOffset) (pair?)
 
 
     \clef percussion
-      \override Staff.TimeSignature.font-size = #4
+      \override Staff.TimeSignature.font-size = #6
+      \override Staff.TimeSignature.font-family = #'typewriter
+%      \override Staff.TimeSignature.font-family = #'typewriter
     \time 3/8
   \set strictBeatBeaming = ##t
     %1
@@ -89,46 +92,51 @@ setDynOffset = #(define-music-function (parser location yOffset) (pair?)
     }
 
     \override Stem.details.beamed-lengths = #'(13)
-    f,32-^ [ \ff \>
+    f,32
+      ^\tweak X-offset #1.5
+      ^^
+      _.
+      [
+      \ff \>
     %f,32--->  [
-    a, a,
-    a, \p ]
+    a,-. a,-.
+    a,-. \p
 
       \override Stem.details.beamed-lengths = #'(12)
 
     %2
     \once \override Dots.font-size = 2
     \tweak Y-offset #1.5
-    r16. [
+    r16.
 
 %    \once \override Stem.length = #26
 
    \setDynOffset #'(0 . -3.5)
-    c32 ] \pp
+    c32-.  \pp
 
     %3
     \override Stem.details.beamed-lengths = #'(13)
         \once \override Dots.font-size = 2
     \tweak Y-offset #1.5
-    r16  [ a,32 \mp\> a, ]
+    r16  a,32 \mp\> a,
 
    % \time 3/8
 
     %4
-    a,16. [
+    a,16.
 
-    a,32-- ]
+    a,32--
 
     %5
 \override Stem.details.beamed-lengths = #'(12)
-    f,16. [
+    f,16.
 
-    c32 ]
+    c32
 
 
     %6
 \override Stem.details.beamed-lengths = #'(13)
-    r32[  f, a,16 \p ]
+    r32  f, a,16 \p ]
 
     \time 2/8
 
@@ -143,19 +151,16 @@ setDynOffset = #(define-music-function (parser location yOffset) (pair?)
     c32-^  \startTextSpan \ff \>
     c
 
-    c ]
+    c
 
     %8
     \override Stem.details.beamed-lengths = #'(13)
-    c [ f, a,
-    \grace {
-       \setGrace #20
-      a32
-    }
+    c  f, a,
+
 
 %    \once \override DynamicText.extra-offset = #'(0 . 2)
-    f,32 \pp
-     ]
+    <f, a>32
+
 
 
 
@@ -168,101 +173,69 @@ setDynOffset = #(define-music-function (parser location yOffset) (pair?)
      \tempo \markup {
       \teeny \general-align #Y #DOWN \note #"16" #1.3 "= 60"
      }
-     \grace {
-       \setGrace #22
-       c'32
-     }
     \tuplet 7/4 {
-          \once \override Dots.font-size = 2
-    \tweak Y-offset #1.5
-    r16[  \stopTextSpan c'16.-^ \ff \>
+
+    c'16\pp
+    \stopTextSpan c'16.-^ \ff \>
 
       \set stemLeftBeamCount = 2
       \set stemRightBeamCount = 3
       c32
 
-      c' ]
+      c'
     }
 
     % 10
           \once \override Dots.font-size = 2
     \tweak Y-offset #1.5
-    r16 [
-    \grace {
-      \setGrace #24
-      e'32
-    }
-    a,
-    \grace {
-      \setGrace #11
-      f,
-    }
-    c' \pp ]
+    r16
+    <a, e'>32
+
+    <f, c'>32 \pp
 
     \break
 
 \time 4/8
     %11
-     \grace {
-        \setGrace #13
-        a,32
-    }
+
     \tuplet 7/4 {
 
-      c'16 [ c'32 c'32 a f,
+      < a, c'>16  c'32 c'32 a f,
 
-      e'-^ ] \ff \>
+      e'-^  \ff \>
     }
 
     % 12
-          \grace {
-         \setGrace #15
-       c32
-      }
+
     \tuplet 5/4 {
 
-      a32  [ c'16.--
-      \grace {
-        \setGrace #15
-        c32
+      <c a>32   c'16.--
 
-      }c'32  ] \mp
+      <c c'>32   \mp
     }
 
     %\time 2/8
 
     %13
-    r32 [ \grace {
-      \setGrace #22
-      c'
-    }
-    a, \<
-    \grace {
-      \setGrace #11
-      f,
-    }
-    c'
+    r32
+    <a, c'>32 \<
+    <f, c'>
 
     c' ]
 
     %14
 \override Stem.details.beamed-lengths = #'(8)
-    r32 [  \grace {
-      \setGrace #13
-      a,
-    }
+    r32 [
     \once \override TextSpanner.bound-details.left.text = "rit."
 \once \override TextSpanner.extra-offset = #'(0 . 3.5)
     \once \override TextSpanner.bound-details.left.padding = #-5
 
     \once \override TextSpanner.bound-details.right.padding = #-2
-    e' \ff
-    -^ \startTextSpan \grace  {
-      \setGrace #11
-    f,
-    }
+    <a, e'> \ff
+    -^ \startTextSpan
     \setDynOffset #'(0 . -7)
-    a-^ e' \stopTextSpan ] \mf
+    <f, a>-^
+    e' \stopTextSpan ] \mf
 
 
     \time 3/8
@@ -274,28 +247,24 @@ setDynOffset = #(define-music-function (parser location yOffset) (pair?)
       "| but now restless"
     }
     %\tempo 8 = 15
-    r32 [ a,16-- \>
+    r32 [ c16-- \>
 
-    f,32 ]
+    a,32
 
     % 16
     \override Stem.details.beamed-lengths = #'(9)
     \tuplet 7/4 {
 
-      c32 [ c'16.
+      c32  c'16.
 
-      a16. ] \p
+      a16.  \p
     }
 
     % 17
 \override Stem.details.beamed-lengths = #'(13)
-    r32  [ \grace {
-      \setGrace #24
-
-      e'32
-    }
+    r32
     \setDynOffset #'(0 . -4)
-    a,16. \pp ]
+    <a, e'>16. \pp
 
     %\time 3/8
 
@@ -303,14 +272,12 @@ setDynOffset = #(define-music-function (parser location yOffset) (pair?)
     % 18
     \tuplet 5/4 {
       \setDynOffset #'(0 . -3)
-      a,32 [ \<
+      c32  \<
 
-      \grace {
-        \setGrace #20
-        a
-      }f,16.
 
-      e'32-- ]
+      <a, a>16.
+
+      e'32--
     }
 
     % 19
@@ -319,7 +286,7 @@ setDynOffset = #(define-music-function (parser location yOffset) (pair?)
 %    \set tupletFullLengthNote = ##t
     \tuplet 5/4 {
 
-      c'16 [
+      c'16
 
       c'16. ] \mp
     }
@@ -328,7 +295,7 @@ setDynOffset = #(define-music-function (parser location yOffset) (pair?)
     \override Stem.details.beamed-lengths = #'(9.5)
     \setDynOffset #'(0 . -8)
     \tuplet 5/4 {
-      r32 [ a8 ] \pp
+      r32 [ a8 \pp
     }
 
 \break
@@ -336,30 +303,24 @@ setDynOffset = #(define-music-function (parser location yOffset) (pair?)
 
     % 21
     \override Stem.details.beamed-lengths = #'(10)
-    \grace {
-      \setGrace #13
-      a,32
-    }
+
    \setDynOffset #'(0 . -4)
-    e'16.-^  [ \ff
+    <a, e'>16.-^   \ff
     \setDynOffset #'(0 . -7)
-    f,32 ] \mp
+    c32  \mp
 
     \setDynOffset #'(0 . -2)
     % 22
 \override Stem.details.beamed-lengths = #'(9.5)
-    r32 [
+    r32
 
-    a16. ] \mf\>
+    a16. \mf\>
 
     % 23
 \override Stem.details.beamed-lengths = #'(13)
-    a,16. [
-    \grace {
-      \setGrace #24
-      e'32
-    }
-    f,32--  ]
+    a,16.
+
+    <c e'>32--
 
     \time 4/8
 
@@ -373,17 +334,17 @@ setDynOffset = #(define-music-function (parser location yOffset) (pair?)
     }
 
     \tuplet 5/4 {
-      a,32  [
-      f,32
+      a,32
+      c32
 
-      e'16. ]
+      e'16.
     }
 
     % 25
     \override Stem.details.beamed-lengths = #'(9)
     \tuplet 5/4 {
 
-      c'32 [ c16 a16 ] \p
+      c'32 [c16 a16 ] \p
     }
 
 
@@ -393,35 +354,31 @@ setDynOffset = #(define-music-function (parser location yOffset) (pair?)
     \override Stem.details.beamed-lengths = #'(7.5)
     \grace {
       \setGrace #13
-      a,32
+      c'32
     }
-    c'--  [ \<
+    a,--  [ \<
     \grace {
       \setGrace #15
-      c
+      e'
     }
-    e'  \grace {
+    c
+    \grace {
       \setGrace #20
       a
-    }c
+    }
+    c
     e' ]
 
     %27
 
     a32 [
-    \grace {
-      \setGrace #15
-      c
-    }
-    e'-^  \ff
-    \grace {
-      \setGrace #11
-      f,
-    }
+
+    < c e'>-^  \ff
+
     \once \override TextSpanner.extra-offset = #'(0 . 2.5)
     \once \override TextSpanner.bound-details.left.text = "molto accel. "
     \once \override TextSpanner.bound-details.right.padding = -1
-    a-^  \startTextSpan e' ]
+    <f, a>-^  \startTextSpan e' ]
 
     \time 3/8
 
@@ -440,32 +397,22 @@ setDynOffset = #(define-music-function (parser location yOffset) (pair?)
 
     %29
     \override Stem.details.beamed-lengths = #'(11)
-    c32  [ \grace {
-      \setGrace #22
-      %\once \override Stem.length = #25
-      c'
-    }
-    c
+    c32  [
+    <c c'>
 
     c'16-- ]
 
     %30
     \override Stem.details.beamed-lengths = #'(8)
-    \grace {
-      \setGrace #15
-      c32
-    }
 
-    c'  [ \grace {
-      \setGrace #13
-      a,
-    }
-    e'-^   \ff
+
+    <a, c'>32  [
+    <f, e'>-^   \ff
     \once \override Score.MetronomeMark.extra-offset = #'(4 . 5)
     \tempo \markup {
       "(" \teeny \general-align #Y #DOWN \note #"16" #1.3 "= 120)"
     }
-    c'16 \stopTextSpan ]
+    c'16:128 \stopTextSpan ] \sp
 
   \break
 \time 1/8
@@ -934,12 +881,12 @@ setDynOffset = #(define-music-function (parser location yOffset) (pair?)
       \teeny \general-align #Y #DOWN \note #"16" #1.3 "= 40"
       "| mournful"
      }
-    r32 [ c'16.-^ ] \ff \>
+    r32 [ a16.-^ ] \ff \>
 
     %74
     \override Stem.details.beamed-lengths = #'(5)
     e''32 [
-    g''16. ]
+    c''16. ]
 
     %75
     \override Stem.details.beamed-lengths = #'(6)
@@ -955,7 +902,7 @@ setDynOffset = #(define-music-function (parser location yOffset) (pair?)
     %76
     \override Stem.details.beamed-lengths = #'(9)
     \tuplet 7/4 {
-      r32 [ c'16 \p
+      r32 [ e'16 \p
                 \once \override Dots.font-size = 2
     \tweak Y-offset #1.5
       r8 ]
@@ -976,7 +923,9 @@ setDynOffset = #(define-music-function (parser location yOffset) (pair?)
     \tuplet 7/4 {
                 \once \override Dots.font-size = 2
     \tweak Y-offset #1.5
-      r8 [ a16.-^ ]
+      r8 [
+
+      a16.:128-^ ]
      }
 
     \time 1/8
@@ -995,7 +944,7 @@ setDynOffset = #(define-music-function (parser location yOffset) (pair?)
     \override Stem.details.beamed-lengths = #'(4)
               \once \override Dots.font-size = 2
     \tweak Y-offset #1.5
-    r16 [ g''16 ] \mp
+    r16 [ c''16 ] \mp
 
 
 
@@ -1009,12 +958,9 @@ setDynOffset = #(define-music-function (parser location yOffset) (pair?)
 
     %82
     \override Stem.details.beamed-lengths = #'(10)
-         \grace {
-       \setGrace #24
-       e'32
-     }
+
     \tuplet 7/4 {
-     r32 [  a,16
+     e'32 [  a,16
                \once \override Dots.font-size = 2
     \tweak Y-offset #1.5
     r16  a16\< ]
@@ -1075,11 +1021,8 @@ setDynOffset = #(define-music-function (parser location yOffset) (pair?)
     \override Stem.details.beamed-lengths = #'(10)
               \once \override Dots.font-size = 2
     \tweak Y-offset #1.5
-    r16. [ \grace {
-      \setGrace #15
-      c32
-    }
-    a  ]
+    r16. [
+    <c a>32  ]
 
 
 %    \break
@@ -1310,14 +1253,11 @@ setDynOffset = #(define-music-function (parser location yOffset) (pair?)
       \set stemLeftBeamCount = 3
       e'
       \grace {
-        \once \override Stem.details.beamed-lengths = #'(16)
-        \once \stemDown
-       a,
-       \once \override Stem.details.beamed-lengths = #'(18)
-       \once \stemDown
+        \setGrace #31
+
        c''
       }
-      a ]
+      <a, a> ]
     }
 
     %108
@@ -1333,12 +1273,9 @@ setDynOffset = #(define-music-function (parser location yOffset) (pair?)
         e'
       }
       c''  \grace {
-        \once \override Stem.details.beamed-lengths = #'(14)
-        \once \stemDown
-        a,
-        \once \override Stem.details.beamed-lengths = #'(14)
-        \once \stemDown
-        c' }
+        \setGrace #24
+        <a, c'>
+      }
       e''--
 
     \grace {
@@ -1354,65 +1291,48 @@ setDynOffset = #(define-music-function (parser location yOffset) (pair?)
 
    \break
    \grace  {
-      \once \override Stem.details.beamed-lengths = #'(20)
-        \once \stemDown
+      \setGrace #24
       c'32
-      \once \override Stem.details.beamed-lengths = #'(20)
-        \once \stemDown
-      g''
+
     }
     %109
         \override Stem.details.beamed-lengths = #'(8)
     \tuplet 6/4 {
-      r32  [
+      g''32  [
       \set stemRightBeamCount = 3
       c'' \mf \>
       \set stemLeftBeamCount = 3
       \set stemRightBeamCount = 2
       a
     \grace {
-      \once \override Stem.details.beamed-lengths = #'(18)
-        \once \stemDown
-      a,32
-     \once \override Stem.details.beamed-lengths = #'(18)
-        \once \stemDown
+      \setGrace #24
       c''
     }
-      e'16-- \p \<
+      <a, e'>16-- \p \<
       g''32 ]
     }
 
     %\break
 
     \grace  {
-       \once \override Stem.details.beamed-lengths = #'(19)
-        \once \stemDown
+       \setGrace #24
         a
-       \once \override Stem.details.beamed-lengths = #'(19)
-        \once \stemDown
-        e''
+
       }
 
     %110
         \override Stem.details.beamed-lengths = #'(10)
     \tuplet 7/4 {
-      r32 [  \grace {
+      e''32 [  \grace {
         \setGrace #29
         c''32
       }
-      e'32   \grace {
-        \setGrace #11
-        f,
-      }
+      <f, e'>32
       e''--  g''-^  \ff
       \grace {
-        \once \override Stem.details.beamed-lengths = #'(18)
-        \once \stemDown
-        c
-        \once \override Stem.details.beamed-lengths = #'(18)
-        \once \stemDown
+        \setGrace #29
         c''
-      } a  e'16 ]
+      } <a c>  e'16 ]
     }
 
 
@@ -1459,23 +1379,20 @@ setDynOffset = #(define-music-function (parser location yOffset) (pair?)
 \time 2/8
     %113
         \override Stem.details.beamed-lengths = #'(9)
-    \grace {
-      \setGrace #13
-      a,32
-    }
+
     \tuplet 6/4 {
-      e'16 [ \grace {
+      <a, e'>16 [ \grace {
         \setGrace #20
         a32
       }
       g''32-^ \ff \>
 
-      e''32 \grace {
+      g''32 \grace {
         \setGrace #31
         e''
       }
-      a
-      e'-- ]
+      c'
+      a-- ]
     }
 
     %114
@@ -1533,12 +1450,12 @@ setDynOffset = #(define-music-function (parser location yOffset) (pair?)
     %119
     a,16-^ [ \ff
     \setDynOffset #'(0 . -3.5)
-    a,16 ] \mf
+    c16 ] \mf
 
     %120
         \override Stem.details.beamed-lengths = #'(13)
         \setDynOffset #'(0 . -4.2)
-    r32 [ c32 \mp
+    r32 [ a,32 \mp
     \setDynOffset #'(0 . -3.7)
     \once \override Score.MetronomeMark.extra-offset = #'(2.5 . 0.5)
      \tempo \markup {

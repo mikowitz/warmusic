@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+pdfcrop --margins "-30 10 -250 -796" tuplets.pdf tuplet1.pdf
+pdfcrop --margins "-120 10 -150 -796" tuplets.pdf tuplet2.pdf
+pdfcrop --margins 5 tuplet1.pdf tuplet1.pdf
+pdfcrop --margins 5 tuplet2.pdf tuplet2.pdf
+
+# open tuplet1.pdf
+open tuplet2.pdf
