@@ -7,6 +7,7 @@ sectionThreePatroclus = {
       \once \override Dots.font-size = 2
       \tweak Y-offset #1.5
       r8
+        \!
       ^\tweak font-size #3
       ^\tweak Y-offset #6.5
       ^\fermata
@@ -20,26 +21,55 @@ sectionThreePatroclus = {
       }
       \once \override Dots.font-size = 2
       \tweak Y-offset #1.5
-      r16 [
-      c'32 \ff
+      r16
+        [
+      c'32
+        -.
+        \f \>
+            \set stemRightBeamCount = 1
+c
+        -.
 
-      c' ]
 
       %33
 
-      r32 [ c'16. ] \mf \>
+            \set stemLeftBeamCount = 1
+r32
+
+             \set stemRightBeamCount = 1
+c'16.
+         -.
 
       %\time 2/8
 
       %34
       \override Stem.details.beamed-lengths = #'(7.5)
-      a16. [
+            \set stemLeftBeamCount = 1
+a16.
+        -.
 
-      e'32 ] \p
+            \set stemRightBeamCount = 1
+e'32
+        -.
+
+        \p
 
       %35
       \override Stem.details.beamed-lengths = #'(8.5)
-      r32 [ a32-- \< c' c'-^ ] \ff
+            \set stemLeftBeamCount = 1
+r32
+
+      a32
+        -.
+        --
+         \<
+       c'
+             \set stemRightBeamCount = 1
+c'
+         -.
+         -^
+
+          \ff
 
 
       %\time 2/8
@@ -48,25 +78,57 @@ sectionThreePatroclus = {
       \once \override TextSpanner.bound-details.left.text = "accel. "
       \once \override TextSpanner.extra-offset = #'(0 . 2.5)
       \once \override TextSpanner.bound-details.right.padding = #-4.5
-      c'16. [ \startTextSpan \>
+            \set stemLeftBeamCount = 1
+c'16.
+        -.
+        \startTextSpan
+        \>
 
-      c'32 ]
+            \set stemRightBeamCount = 1
+c'32
+        -.
+
 
       %37
 
-      c'32 [ e' a16 ] \mp
+            \set stemLeftBeamCount = 1
+c'32
+        -.
+
+      e'
+        -.
+            \set stemRightBeamCount = 1
+a16
+        -.
+
+        \mp
 
       %\time 2/8
 
       %38
       \override Stem.details.beamed-lengths = #'(7.5)
-      r32 [ e'16 \pp
+            \set stemLeftBeamCount = 1
+r32
+      e'16
+        -.
+        \pp
 
-      c'32-- ]
+            \set stemRightBeamCount = 1
+c'32
+        --
+        -.
 
       %39
 
-      r32 [ a32 \p e'16 \stopTextSpan ]
+            \set stemLeftBeamCount = 1
+r32
+      a32
+        -.
+        \p
+      e'16
+        -.
+        \stopTextSpan
+        ]
 
 
 }

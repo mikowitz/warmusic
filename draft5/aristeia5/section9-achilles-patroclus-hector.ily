@@ -22,8 +22,11 @@ sectionNineAchillesPatroclusHector = {
               \setGrace #31
 
               c''
+                _\(
             }
-            <a, a> ]
+            \set stemRightBeamCount = 1
+            <a, a>
+              \)
           }
 
           %108
@@ -31,8 +34,12 @@ sectionNineAchillesPatroclusHector = {
           \grace {
             \setGrace #33
             g''32
-          }\tuplet 6/4 {
-            f,32--  [
+            _(
+          }
+          \tuplet 6/4 {
+            \set stemLeftBeamCount = 1
+            f,32--
+              )
 
             \grace {
               \setGrace #24
@@ -47,11 +54,17 @@ sectionNineAchillesPatroclusHector = {
             \grace {
               \setGrace #11
               f,32
+                _(
+                _\(
             }
 
-            e''-^   \ff
             e''
-            c'' ]
+              \)
+              -^   \ff
+            e''
+            \set stemRightBeamCount = 1
+            c''
+              )
           }
 
 
@@ -64,7 +77,8 @@ sectionNineAchillesPatroclusHector = {
           %109
           \override Stem.details.beamed-lengths = #'(8)
           \tuplet 6/4 {
-            g''32  [
+            \set stemLeftBeamCount = 1
+            g''32
             \set stemRightBeamCount = 3
             c'' \mf \>
             \set stemLeftBeamCount = 3
@@ -73,9 +87,15 @@ sectionNineAchillesPatroclusHector = {
             \grace {
               \setGrace #24
               c''
+                _\(
+                _(
             }
-            <a, e'>16-- \p \<
-            g''32 ]
+            <a, e'>16
+              \)
+              -- \p \<
+            \set stemRightBeamCount = 1
+            g''32
+              )
           }
 
           %\break
@@ -89,16 +109,28 @@ sectionNineAchillesPatroclusHector = {
           %110
           \override Stem.details.beamed-lengths = #'(10)
           \tuplet 7/4 {
-            e''32 [  \grace {
+            \set stemLeftBeamCount = 1
+            e''32  \grace {
               \setGrace #29
               c''32
+                _\(
+                 _(
             }
             <f, e'>32
-            e''--  g''-^  \ff
+              \)
+            e''--
+            g''
+              )
+              -^  \ff
             \grace {
               \setGrace #29
               c''
-            } <a c>  e'16 ]
+                _\(
+            }
+            <a c>
+              \)
+            \set stemRightBeamCount = 1
+            e'16
           }
 
 
@@ -108,13 +140,20 @@ sectionNineAchillesPatroclusHector = {
           \override Stem.details.beamed-lengths = #'(5.5)
           \tuplet 7/4 {
             \setDynOffset #'(0 . -2)
-            g''32 [ \pp \<
+            \set stemLeftBeamCount = 1
+            g''32  \pp \<
             c'' g''16 \grace {
               \setGrace #11
               f,32
+                _\(
+                _(
             }
-            c''  a,
-            g''-- ]
+            c''
+              \)
+            a,
+            \set stemRightBeamCount = 1
+            g''--
+              )
           }
 
           %112
@@ -124,7 +163,8 @@ sectionNineAchillesPatroclusHector = {
             e''32
           }
           \tuplet 6/4 {
-            c' [ \grace {
+            \set stemLeftBeamCount = 1
+            c' \grace {
               \setGrace #29
               c''
             }
@@ -133,13 +173,17 @@ sectionNineAchillesPatroclusHector = {
             \grace {
               \setGrace #31
               e''
+                _(
             }
 
-            a,  \grace {
+            a,
+              )
+            \grace {
               \setGrace #31
               e''
             }
-            c'16 ]
+            \set stemRightBeamCount = 1
+            c'16
           }
           \break
           \time 2/8
@@ -147,7 +191,8 @@ sectionNineAchillesPatroclusHector = {
           \override Stem.details.beamed-lengths = #'(9)
 
           \tuplet 6/4 {
-            <a, e'>16 [ \grace {
+            \set stemLeftBeamCount = 1
+            <a, e'>16  \grace {
               \setGrace #20
               a32
             }
@@ -158,7 +203,7 @@ sectionNineAchillesPatroclusHector = {
               e''
             }
             c'
-            a-- ]
+            \set stemRightBeamCount = 1a--
           }
 
           %114
@@ -167,14 +212,18 @@ sectionNineAchillesPatroclusHector = {
             \once \override Stem.details.beamed-lengths = #'(11)
             \once \stemDown
             e''32
+              _(
             \once \override Stem.details.beamed-lengths = #'(11)
             \once \stemDown
             a,32
           }
           \tuplet 5/4 {
+            \set stemLeftBeamCount = 1
             e''32 a, \pp
             \setDynOffset #'(0 . -8.5)
-            c''16.-^ ] \ff
+            c''16.
+              )
+              -^ ] \ff
           }
           \setDynOffset#'(0 . -2)
 

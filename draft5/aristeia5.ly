@@ -6,7 +6,7 @@
 \include "aristeia5/section2-achilles-patroclus.ily"
 \include "aristeia5/section3-patroclus.ily"
 \include "aristeia5/section4-patroclus-hector.ily"
-\include "aristeia5/section5-achilles.ily"
+\include "aristeia5/section5-hector.ily"
 \include "aristeia5/section6-patroclus-hector.ily"
 \include "aristeia5/section7-achilles-patroclus.ily"
 \include "aristeia5/section8-achilles-hector.ily"
@@ -30,7 +30,7 @@
       \sectionTwoAchillesPatroclus
       \sectionThreePatroclus
       \sectionFourPatroclusHector
-      \sectionFiveAchilles
+      \sectionFiveHector
       \sectionSixPatroclusHector
       \sectionSevenAchillesPatroclus
       \sectionEightAchillesHector
@@ -59,6 +59,7 @@
       \override TupletNumber.extra-offset = #'(0 . 0.5)
       \override TupletBracket.extra-offset = #'(0 . .5)
       \override TupletNumber.text = #tuplet-number::calc-denominator-text
+      %\remove "Dynamic_engraver"
     }
     \context {
       \Staff
@@ -67,7 +68,6 @@
       \override Rest.font-size = #2.5
       \override DynamicText.extra-offset = #'(0 . -1)
       \override Hairpin.extra-offset = #'(0 . -1)
-
     }
   }
 }
