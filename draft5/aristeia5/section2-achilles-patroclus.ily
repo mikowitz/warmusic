@@ -33,7 +33,7 @@ c'
         \set stemRightBeamCount = 1
 
   <f, c'>32
-  \pp
+  \mp
 
   \break
 

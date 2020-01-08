@@ -31,7 +31,6 @@ sectionTenAchilles = {
   f,
     -.
     --
-    \pp
 
   %117
   \set stemLeftBeamCount = 1
@@ -47,7 +46,6 @@ sectionTenAchilles = {
   \set stemRightBeamCount = 1
   a,32
     -.
-    \<
     \startTextSpan
 
   \time 3/8
@@ -58,6 +56,7 @@ sectionTenAchilles = {
   \set stemRightBeamCount = 1
   a,32
     -.
+    \pp
 
   %119
   \set stemLeftBeamCount = 1
@@ -69,7 +68,7 @@ sectionTenAchilles = {
   \set stemRightBeamCount = 1
   c16
     -.
-    \mf
+    \f
 
   %120
   \override Stem.details.beamed-lengths = #'(13)

@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-lilypond aristeia2.ly
+lilypond aristeia5.ly
 lilypond nonagram.ly
 lilypond tuplets.ly
 

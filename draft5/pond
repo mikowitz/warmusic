@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+lilypond aristeia5.ly
+dbxcli put aristeia5.pdf warmusic/aristeia5.pdf
